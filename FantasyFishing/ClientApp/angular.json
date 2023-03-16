@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "FantasyFishing"
+  "defaultProject": "FantasyFishing",
+  "cli": {
+    "analytics": false
+  }
 }
