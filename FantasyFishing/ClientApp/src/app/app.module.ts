@@ -24,14 +24,7 @@ import { CaughtFishComponent } from './Components/caught-fish/caught-fish.compon
     CounterComponent,
     FetchDataComponent,
     FishesComponent,
-<<<<<<< HEAD
-
-
-
-
-=======
     CaughtFishComponent
->>>>>>> 613c95e9edb39787f3c590b56cb1f712af27deff
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

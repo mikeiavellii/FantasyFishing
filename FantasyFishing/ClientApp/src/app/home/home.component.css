@@ -33,13 +33,13 @@
 }
 
 #background-video {
-  height: 100vh;
+  height: 50vh;
   width: 100vw;
   object-fit: cover;
   position: fixed;
   left: 0;
   right: 0;
-  top: 0;
+  top: 1;
   bottom: 0;
   z-index: -1;
 }

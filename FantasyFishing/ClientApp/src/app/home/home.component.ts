@@ -22,10 +22,10 @@ ngOnInit(): void {
 
   
 }
-  @ViewChild('cursor') refCursor: any;
-  @HostListener('document:mousemove',['$event'])
-  onMouseMove(event:any){
-    this.refCursor.nativeElement.style.left = (event.pageX - 25) + "px";
-    this.refCursor.nativeElement.style.top = (event.pageY -25) + "px";
-  }
+  // @ViewChild('cursor') refCursor: any;
+  // @HostListener('document:mousemove',['$event'])
+  // onMouseMove(event:any){
+  //   this.refCursor.nativeElement.style.left = (event.pageX - 25) + "px";
+  //   this.refCursor.nativeElement.style.top = (event.pageY -25) + "px";
+  // }
 }
