@@ -1,3 +1,4 @@
+import { Options } from '@angular-slider/ngx-slider';
 import { Component, OnInit } from '@angular/core';
 import { CaughtFish } from 'src/app/Models/caught-fish';
 import { Fish, ImgLink, SciClass } from 'src/app/Models/fish';
@@ -12,10 +13,21 @@ export class FishesComponent implements OnInit {
   AllFish: Fish[] = [];
   singleCatch: CaughtFish = {} as CaughtFish;
 
+  value: number = 0;
+  options: Options = {
+    floor: 0,
+    ceil: 100,
+    vertical: true
+  };
+
   constructor(private fishService: FishService) { }
 
   ngOnInit(): void{
     this.getFish();
+  }
+
+  sliderChange():void{
+    console.log('hello');
   }
 
   getFish(): void{
