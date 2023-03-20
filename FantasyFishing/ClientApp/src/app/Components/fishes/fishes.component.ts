@@ -1,3 +1,4 @@
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
 import { CaughtFish } from 'src/app/Models/caught-fish';
 import { Fish, ImgLink, SciClass } from 'src/app/Models/fish';
@@ -12,11 +13,18 @@ export class FishesComponent implements OnInit {
   AllFish: Fish[] = [];
   singleCatch: CaughtFish = {} as CaughtFish;
 
-  constructor(private fishService: FishService) { }
+  constructor(private fishService: FishService, private authService: SocialAuthService) { }
+  user: SocialUser = {} as SocialUser;
 
   ngOnInit(): void{
-    this.getFish();
-  }
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(user);
+      this.loggedIn = (user != null);
+      this.getFish();
+  });
+}
+
 
   getFish(): void{
     this.fishService.getFish().subscribe((response: Fish[]) => {
@@ -39,6 +47,7 @@ export class FishesComponent implements OnInit {
       console.log(response);
     });
   }
+  loggedIn: boolean = false;
 
-  userId: string = "googleId"
+
 }

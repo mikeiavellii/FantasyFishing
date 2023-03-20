@@ -52,6 +52,7 @@ import { CaughtFishComponent } from './Components/caught-fish/caught-fish.compon
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
               '643619535895-sgcocrg6r9l25stj4ijr89a4g7m6j36n'
+              
             )
           }
         ]
