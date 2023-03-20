@@ -1,0 +1,54 @@
+.bimg {
+    background-image: url('https://img5.goodfon.com/original/1920x1080/f/42/lodka-reka-vid-sverkhu-voda-rybak-boat-view-from-above-water.jpg?d=1');
+    overflow: hidden; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    color:white;
+    height:100%;
+    width:100%
+  }
+.bg-gray{
+  background-color: rgba(39, 39, 39, 0.5);
+  color:white;
+}
+.bg-gray1{
+  background-color: rgba(39, 39, 39, 0.4);
+  color:white;
+}
+.myVideo {
+  position: fixed;
+  
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#background-video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+h1, h2 {
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+    #background-video { display: none; }
+}

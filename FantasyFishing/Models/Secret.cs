@@ -5,7 +5,7 @@ namespace FantasyFishing.Models
 	{
         public static string serverName = "fantasyfishing.database.windows.net";
         public static string uname = "Group3";
-        public static string password = "FantasyFishing1";
+        public static string password = "LakeOfEden1";
     }
 }
 
