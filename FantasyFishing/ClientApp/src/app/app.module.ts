@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FishesComponent } from './Components/fishes/fishes.component';
+import { CaughtFishComponent } from './Components/caught-fish/caught-fish.component';
 
 
 
@@ -23,10 +24,14 @@ import { FishesComponent } from './Components/fishes/fishes.component';
     CounterComponent,
     FetchDataComponent,
     FishesComponent,
+<<<<<<< HEAD
 
 
 
 
+=======
+    CaughtFishComponent
+>>>>>>> 613c95e9edb39787f3c590b56cb1f712af27deff
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,6 +46,7 @@ import { FishesComponent } from './Components/fishes/fishes.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'fishing', component: FishesComponent },
+      { path: 'caughtFish', component: CaughtFishComponent },
     ])
   ],
   providers: [
