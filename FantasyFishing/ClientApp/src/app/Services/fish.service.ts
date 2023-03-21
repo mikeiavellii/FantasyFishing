@@ -23,5 +23,13 @@ export class FishService {
 
   getCaughtFish(userId: string): Observable<CaughtFish[]>{
     return this.http.get<CaughtFish[]>(`${this.baseUrl}${this.url}/GetCaughtFish?userId=${userId}`);
+    
+  }
+  getSingleFish(): Observable<Fish>{
+    return this.http.get<Fish>(`${this.baseUrl}${this.url}/GetFish`);
+  }
+  removeCaughtFish(userId: string, id: number): Observable<CaughtFish>{
+    return this.http.delete<CaughtFish>(`${this.baseUrl}${this.url}/DeleteCaughtFish?userId=${userId}&id=${id}`)
   }
 }
+

@@ -12,6 +12,7 @@ import { FishService } from 'src/app/Services/fish.service';
 export class FishesComponent implements OnInit {
   AllFish: Fish[] = [];
   singleCatch: CaughtFish = {} as CaughtFish;
+  singleCatches: Fish = {} as Fish;
 
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
   user: SocialUser = {} as SocialUser;
@@ -25,7 +26,12 @@ export class FishesComponent implements OnInit {
   });
 }
 
-
+getSingleFish(): void{
+  this.fishService.getSingleFish().subscribe((response: Fish) => {
+    console.log(response);
+    this.singleCatches = response;
+  });
+}
   getFish(): void{
     this.fishService.getFish().subscribe((response: Fish[]) => {
       console.log(response);
@@ -33,9 +39,9 @@ export class FishesComponent implements OnInit {
     });
   }
 
-  addCaughtFish(userID: string, fishNAME: string, fishIMAGE: ImgLink, fishCLASS: SciClass): void{
+  addCaughtFish( fishNAME: string, fishIMAGE: ImgLink, fishCLASS: SciClass): void{
     let newCatch: CaughtFish = {
-      userId: userID,
+      userId: this.user.id,
       fishName: fishNAME,
       imageLink: fishIMAGE,
       scientificClass: fishCLASS,

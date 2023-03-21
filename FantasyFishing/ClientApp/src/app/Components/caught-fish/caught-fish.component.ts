@@ -12,6 +12,12 @@ import { FishService } from 'src/app/Services/fish.service';
 export class CaughtFishComponent implements OnInit {
   caughtFish: CaughtFish[] = [];
 
+  removeCaughtFish(id: number): void{
+    this.fishService.removeCaughtFish(this.user.id, id).subscribe((response: CaughtFish) => {
+      console.log(response);
+      this.getCaughtFish();
+    });
+  }
 
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
   loggedIn: boolean = false;
