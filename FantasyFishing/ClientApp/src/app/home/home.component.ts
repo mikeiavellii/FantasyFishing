@@ -23,7 +23,6 @@ ngOnInit(): void {
 
 
 }
-
   @ViewChild('cursor') refCursor: any;
   @HostListener('document:mousemove',['$event'])
   onMouseMove(event:any){

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
-
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -31,6 +31,7 @@ import { CaughtFishComponent } from './Components/caught-fish/caught-fish.compon
     HttpClientModule,
     FormsModule,
     SocialLoginModule,
+    NgxSliderModule,
    
 
 

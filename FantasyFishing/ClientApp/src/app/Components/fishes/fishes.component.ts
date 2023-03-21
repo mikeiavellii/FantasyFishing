@@ -1,3 +1,4 @@
+import { Options } from '@angular-slider/ngx-slider';
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
 import { CaughtFish } from 'src/app/Models/caught-fish';
@@ -14,6 +15,14 @@ export class FishesComponent implements OnInit {
   singleCatch: CaughtFish = {} as CaughtFish;
   singleCatches: Fish = {} as Fish;
 
+  value: number = 0;
+  options: Options = {
+    floor: 0,
+    ceil: 100,
+    vertical: true
+  };
+
+  
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
   user: SocialUser = {} as SocialUser;
 
@@ -32,6 +41,11 @@ getSingleFish(): void{
     this.singleCatches = response;
   });
 }
+
+  sliderChange():void{
+    console.log('hello');
+  }
+
   getFish(): void{
     this.fishService.getFish().subscribe((response: Fish[]) => {
       console.log(response);

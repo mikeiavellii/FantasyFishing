@@ -1,4 +1,6 @@
-
+<div style="height:200px">
+    <ngx-slider [(value)]="value" [options]="options" (userChange)="sliderChange()"></ngx-slider>
+</div>
 <div *ngFor="let f of AllFish">
     <p>{{ f.name }}</p>
     <button (click)="addCaughtFish( f.name, f.img_Src_Set, f.meta.scientific_Classification)">x</button>
