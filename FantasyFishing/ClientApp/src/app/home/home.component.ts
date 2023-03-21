@@ -18,9 +18,10 @@ ngOnInit(): void {
   	this.user = user;
     console.log(user);
   	this.loggedIn = (user != null);
+    
 	});
 
-  
+
 }
   @ViewChild('cursor') refCursor: any;
   @HostListener('document:mousemove',['$event'])
@@ -28,4 +29,6 @@ ngOnInit(): void {
     this.refCursor.nativeElement.style.left = (event.pageX - 25) + "px";
     this.refCursor.nativeElement.style.top = (event.pageY -25) + "px";
   }
+
+
 }
