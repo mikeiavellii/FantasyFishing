@@ -12,7 +12,10 @@ import { FishService } from 'src/app/Services/fish.service';
 })
 export class FishesComponent implements OnInit {
   AllFish: Fish[] = [];
-  singleCatch: Fish = {} as Fish;
+
+  displayRandom: boolean = false;
+
+  random: number = 0;
 
   value: number = 0;
 
@@ -36,7 +39,7 @@ export class FishesComponent implements OnInit {
   }
 
   sliderChange():void{
-    console.log('hello');
+    console.log(this.value);
   }
 
   getFish(): void{
@@ -47,13 +50,15 @@ export class FishesComponent implements OnInit {
   }
 
   getSingleFish(): void{
-    this.fishService.getSingleFish().subscribe((response: Fish) => {
-      const random = Math.floor(Math.random() * this.AllFish.length)
-      console.log(random, this.AllFish[random]);
-      
-      // console.log(response);
-      // this.singleCatch = response;
+    this.fishService.getSingleFish().subscribe(() => {
+      this.random = Math.floor(Math.random() * this.AllFish.length)
+      console.log(this.random, this.AllFish[this.random]);
+      this.displayRandom = true;
     });
+  }
+
+  Hide(): void{
+    this.displayRandom = false;
   }
 
   addCaughtFish( fishNAME: string, fishIMAGE: ImgLink, fishCLASS: SciClass): void{
@@ -65,7 +70,7 @@ export class FishesComponent implements OnInit {
       fishImage: "",
     }
     console.log(newCatch);
-
+    this.displayRandom = false;
     this.fishService.addCaughtFish(newCatch).subscribe((response: CaughtFish) => {
       console.log(response);
     });

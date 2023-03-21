@@ -1,7 +1,6 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
 import { CaughtFish } from 'src/app/Models/caught-fish';
-import { Fish } from 'src/app/Models/fish';
 import { FishService } from 'src/app/Services/fish.service';
 
 @Component({
