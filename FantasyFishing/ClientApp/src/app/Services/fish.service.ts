@@ -32,4 +32,3 @@ export class FishService {
     return this.http.delete<CaughtFish>(`${this.baseUrl}${this.url}/DeleteCaughtFish?userId=${userId}&id=${id}`)
   }
 }
-

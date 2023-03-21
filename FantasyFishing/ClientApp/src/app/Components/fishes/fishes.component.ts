@@ -12,10 +12,10 @@ import { FishService } from 'src/app/Services/fish.service';
 })
 export class FishesComponent implements OnInit {
   AllFish: Fish[] = [];
-  singleCatch: CaughtFish = {} as CaughtFish;
-  singleCatches: Fish = {} as Fish;
+  singleCatch: Fish = {} as Fish;
 
   value: number = 0;
+
   options: Options = {
     floor: 0,
     ceil: 100,
@@ -23,6 +23,7 @@ export class FishesComponent implements OnInit {
   };
 
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
+
   user: SocialUser = {} as SocialUser;
 
   ngOnInit(): void{
@@ -34,13 +35,6 @@ export class FishesComponent implements OnInit {
     });
   }
 
-  getSingleFish(): void{
-    this.fishService.getSingleFish().subscribe((response: Fish) => {
-      console.log(response);
-      this.singleCatches = response;
-    });
-  }
-
   sliderChange():void{
     console.log('hello');
   }
@@ -49,6 +43,16 @@ export class FishesComponent implements OnInit {
     this.fishService.getFish().subscribe((response: Fish[]) => {
       console.log(response);
       this.AllFish = response;
+    });
+  }
+
+  getSingleFish(): void{
+    this.fishService.getSingleFish().subscribe((response: Fish) => {
+      const random = Math.floor(Math.random() * this.AllFish.length)
+      console.log(random, this.AllFish[random]);
+      
+      // console.log(response);
+      // this.singleCatch = response;
     });
   }
 
