@@ -22,7 +22,6 @@ export class FishesComponent implements OnInit {
     vertical: true
   };
 
-  
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
   user: SocialUser = {} as SocialUser;
 
@@ -32,15 +31,15 @@ export class FishesComponent implements OnInit {
       console.log(user);
       this.loggedIn = (user != null);
       this.getFish();
-  });
-}
+    });
+  }
 
-getSingleFish(): void{
-  this.fishService.getSingleFish().subscribe((response: Fish) => {
-    console.log(response);
-    this.singleCatches = response;
-  });
-}
+  getSingleFish(): void{
+    this.fishService.getSingleFish().subscribe((response: Fish) => {
+      console.log(response);
+      this.singleCatches = response;
+    });
+  }
 
   sliderChange():void{
     console.log('hello');
@@ -67,7 +66,6 @@ getSingleFish(): void{
       console.log(response);
     });
   }
+
   loggedIn: boolean = false;
-
-
 }

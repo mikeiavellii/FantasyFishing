@@ -16,19 +16,22 @@ export class NavMenuComponent {
 
   the: boolean = false;
 
-signInWithGoogle(): void {
+  signInWithGoogle(): void {
 
-	this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  the:true;
+	  this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.the = true;
   }
 
+  // signOut(): void {
+  //   setTimeout(()=>{
+	// this.authService.signOut();
+  // },5000);
+  // the:false;
+  // }    
   signOut(): void {
-    setTimeout(()=>{
-	this.authService.signOut();
-  },5000);
-  the:false;
-  }    
-
+	  this.authService.signOut();
+    this.the = false;
+  }
 
   collapse() {
     this.isExpanded = false;
@@ -49,7 +52,6 @@ signInWithGoogle(): void {
     
     });
   }
-    loggedIn: boolean = false;
-
+  
+  loggedIn: boolean = false;
 }
-``

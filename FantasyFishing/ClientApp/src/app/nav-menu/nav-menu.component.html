@@ -28,20 +28,15 @@
             <a class="nav-link text-dark" *ngIf="!loggedIn" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fishing']"
-              >Fishing</a
-            >
+            <a class="nav-link text-dark" [routerLink]="['/fishing']">Fishing</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/caughtFish']"
-              >Caught</a
-            >
+            <a class="nav-link text-dark" [routerLink]="['/caughtFish']">Caught</a>
           </li>
           <li class="nav-item">
             <!-- <asl-google-signin-button *ngIf="!loggedIn" type='icon' size='medium'></asl-google-signin-button> -->
-            <button class="btn btn-outline-dark" *ngIf="loggedIn"  [routerLink]="['/']" (click)="signOut()">Sign Out
-            </button>
-            </li>
+            <button class="btn btn-outline-dark" *ngIf="loggedIn"  [routerLink]="['/']" (click)="signOut()">Sign Out</button>
+          </li>
         </ul>
       </div>
     </div>
