@@ -18,6 +18,8 @@ export class CaughtFishComponent implements OnInit {
 
   user: SocialUser = {} as SocialUser;
 
+  // trophy: boolean = false;
+
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
       this.user = user;
@@ -40,4 +42,12 @@ export class CaughtFishComponent implements OnInit {
       this.getCaughtFish();
     });
   }
+
+  // addTrophy(): void{
+  //   this.trophy = true;
+
+  //   if(this.caughtFish.includes(this.classes) ){
+  //     console.log('You the Modest Fisher Trophy for catching 1 of each class!')
+  //   }
+  // }
 }

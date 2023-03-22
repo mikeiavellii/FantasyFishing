@@ -1,6 +1,32 @@
-<div *ngFor="let f of caughtFish">
+<!-- <div *ngFor="let f of caughtFish">
     <p>{{ f.fishName }}</p>
     <img src="{{ f.fishImage }}" />
     <button (click)="removeCaughtFish(f.id!)">x</button>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div *ngFor="let f of caughtFish; index as i" class="col-sm-4 mb-4">
+            <div>
+                <div class="card card-flip h-100 bg-transparent">
+                    <div class="card-front">
+                        <div class="card-body">
+                            <button (click)="removeCaughtFish(f.id!)">x</button>
+                            <i class="fa fa-search fa-5x float-right"></i>
+                            <h3 class="card-title">Fish:</h3>
+                            <p class="card-text">{{ f.fishName }}</p>
+                            <img src="{{ f.fishImage }}" />
+                        </div>
+                    </div>
+                    <div class="card-back bg-white">
+                        <div class="card-body">
+                            <h3 class="card-title">Info:</h3>
+                            <p class="card-text">{{ f.scientificClass.class }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

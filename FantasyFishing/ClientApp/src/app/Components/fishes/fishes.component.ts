@@ -30,6 +30,8 @@ export class FishesComponent implements OnInit {
 
   tryAgain: boolean = false;
 
+  casted: boolean = false;
+
   classes: string[] = [
     'actinopterygii',
     'chondrichthyes',
@@ -43,7 +45,11 @@ export class FishesComponent implements OnInit {
   options: Options = {
     floor: 0,
     ceil: 100,
-    vertical: true
+    vertical: true,
+    rightToLeft: true,
+    translate: (value: number): string => {
+      return value + ' meters';
+    }
   };
 
   user: SocialUser = {} as SocialUser;
@@ -58,7 +64,7 @@ export class FishesComponent implements OnInit {
   }
 
   sliderChange():void{
-    console.log(this.value);
+    // console.log(this.value);
   }
 
   getFish(): void{
@@ -69,54 +75,64 @@ export class FishesComponent implements OnInit {
   }
 
   getSingleFish(): void{
-    // this.fishService.getSingleFish().subscribe(() => {
-    // this.random = Math.floor(Math.random() * this.AllFish.length)
-    // console.log(this.random, this.AllFish[this.random]);
-    // this.displayRandom = true;
-    // });
-    let pickNumber:number = Math.floor((Math.random() * this.numbers.length));
-    if (pickNumber = 5){
-      this.canCatchFish == false;
-      console.log(pickNumber)
+ 
+    this.casted = true;
+
+    this.canCatchFish = false;
+
+    this.tryAgain = false;
+
+    let pickNumber:number = Math.floor((Math.random() * this.numbers.length)) + 1;
+    
+    console.log(pickNumber)
+
+    if (pickNumber == 1){
+      this.canCatchFish = true;
     }
-    else if(pickNumber = 6){
-      this.canCatchFish == true;
-      console.log(pickNumber)
+    else if(pickNumber == 2){
+      this.canCatchFish = true;
+      
     }
-    else if(pickNumber = 7){
-      this.tryAgain == true;
-      console.log(pickNumber)
+    else if(pickNumber == 3){
+      this.tryAgain = true;
+      
     }
 
     let classChoice: string = "";
-    if(this.value >= 1 && this.value <= 25){
-      classChoice = this.classes[0];
+    if(this.canCatchFish == true) {
+
+      if(this.value >= 1 && this.value <= 25){
+        classChoice = this.classes[0];
+      }
+      else if(this.value >= 26 && this.value <= 50){
+        classChoice = this.classes[1];
+      }
+      else if(this.value >= 51 && this.value <= 75){
+        classChoice = this.classes[2];
+      }
+      else if(this.value >= 76 && this.value <= 100){
+        classChoice = this.classes[3];
+      }
+      console.log(classChoice);
+      let filtered: Fish[] = this.AllFish.filter(f => f.meta.scientific_Classification.class == classChoice);
+      this.random = Math.floor(Math.random() * filtered.length)
+      console.log(this.random, filtered[this.random]);
+      //finding in main array
+      this.random = this.AllFish.findIndex(f => f.id == filtered[this.random].id)
+      
+      this.displayReel = true;
+      setTimeout(()=>{
+      this.displayReel = false;
+      this.displayRandom = true;
+      },5000);
     }
-    else if(this.value >= 26 && this.value <= 50){
-      classChoice = this.classes[1];
-    }
-    else if(this.value >= 51 && this.value <= 75){
-      classChoice = this.classes[2];
-    }
-    else if(this.value >= 76 && this.value <= 100){
-      classChoice = this.classes[3];
-    }
-    console.log(classChoice);
-    let filtered: Fish[] = this.AllFish.filter(f => f.meta.scientific_Classification.class == classChoice);
-    this.random = Math.floor(Math.random() * filtered.length)
-    console.log(this.random, filtered[this.random]);
-    //finding in main array
-    this.random = this.AllFish.findIndex(f => f.id == filtered[this.random].id)
-    
-    this.displayReel = true;
-    setTimeout(()=>{
-    this.displayReel = false;
-    this.displayRandom = true;
-    },5000);
   }
 
   Hide(): void{
     this.displayRandom = false;
+    this.value = 0;
+    this.casted = false;
+    this.tryAgain = false;
   }
 
   addCaughtFish( fishNAME: string, fishIMAGE: ImgLink, fishCLASS: SciClass): void{
@@ -132,5 +148,7 @@ export class FishesComponent implements OnInit {
     this.fishService.addCaughtFish(newCatch).subscribe((response: CaughtFish) => {
       console.log(response);
     });
+    this.value = 0;
+    this.casted = false;
   }
 }

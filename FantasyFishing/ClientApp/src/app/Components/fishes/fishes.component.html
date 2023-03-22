@@ -1,23 +1,21 @@
-<div style="height:200px">
+<div style="height:200px" *ngIf="casted == false">
     <ngx-slider [(value)]="value" [options]="options" (userChange)="sliderChange()"></ngx-slider>
 </div>
 
-<button (click)="getSingleFish()">Cast Line</button>
+<button (click)="getSingleFish()" *ngIf="casted == false && value != 0">Cast Line</button>
 <div *ngIf="displayReel == true">
-    <p>Reel in your fish(MOVE REEL BAR BACK TO 0)</p>
+    <p>Looks like somethings biting!!!</p>
 </div>
 <div *ngIf="tryAgain == true">
     <p>Nothing is biting! Reel your line in and try again!</p>
+    <button (click)="Hide()">Reel In</button>
 </div>
 <div *ngIf="displayRandom == true">
     <p>{{ AllFish[this.random].name }}</p>
+    <img src="{{ AllFish[this.random].img_Src_Set.link1}}">
     <button (click)="addCaughtFish(AllFish[this.random].name, AllFish[this.random].img_Src_Set, AllFish[this.random].meta.scientific_Classification)">🎣📋</button>
     <button (click)="Hide()">Release</button>
 </div>
 
-<!-- <div *ngFor="let f of AllFish">
-    <p>{{ f.meta.scientific_Classification.order }}</p>
 
-    <button (click)="addCaughtFish( f.name, f.img_Src_Set, f.meta.scientific_Classification)">x</button>
-</div> -->
 

@@ -1,0 +1,30 @@
+.card-flip > div {
+    backface-visibility: hidden;
+    transition: transform 1000ms;
+    transition-timing-function: linear;
+    width: 100%;
+    height: 300pt;
+    margin: 0;
+    display: flex;
+    border: 0;
+}
+  
+.card-front {
+    transform: rotateY(0deg);
+    background-image: url("https://img.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg");
+}
+  
+.card-back {
+    transform: rotateY(180deg);
+    position: absolute;
+    background-image: url("https://img.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg");
+    top: 0;
+}
+  
+.card-flip:active .card-front{
+    transform: rotateY(-180deg);
+}
+    
+.card-flip:active .card-back {
+    transform: rotateY(0deg);
+}
