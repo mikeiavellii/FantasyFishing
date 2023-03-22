@@ -24,6 +24,8 @@ export class FishesComponent implements OnInit {
 
   displayRandom: boolean = false;
 
+  displayReel: boolean = false;
+
   classes: string[] = [
     'actinopterygii',
     'chondrichthyes',
@@ -61,30 +63,35 @@ export class FishesComponent implements OnInit {
 
   getSingleFish(): void{
     // this.fishService.getSingleFish().subscribe(() => {
-    this.random = Math.floor(Math.random() * this.AllFish.length)
-    console.log(this.random, this.AllFish[this.random]);
-    this.displayRandom = true;
-    // });
-    // let classChoice: string = "";
-    // if(this.value >= 1 && this.value <= 25){
-    //   classChoice = this.classes[0];
-    // }
-    // else if(this.value >= 26 && this.value <= 50){
-    //   classChoice = this.classes[1];
-    // }
-    // else if(this.value >= 51 && this.value <= 75){
-    //   classChoice = this.classes[2];
-    // }
-    // else if(this.value >= 76 && this.value <= 100){
-    //   classChoice = this.classes[3];
-    // }
-    // console.log(classChoice);
-    // let filtered: Fish[] = this.AllFish.filter(f => f.meta.scientific_Classification.class == classChoice);
-    // this.random = Math.floor(Math.random() * filtered.length)
-    // console.log(this.random, filtered[this.random]);
-    // //finding in main array
-    // this.random = this.AllFish.findIndex(f => f.id == filtered[this.random].id)
+    // this.random = Math.floor(Math.random() * this.AllFish.length)
+    // console.log(this.random, this.AllFish[this.random]);
     // this.displayRandom = true;
+    // });
+    let classChoice: string = "";
+    if(this.value >= 1 && this.value <= 25){
+      classChoice = this.classes[0];
+    }
+    else if(this.value >= 26 && this.value <= 50){
+      classChoice = this.classes[1];
+    }
+    else if(this.value >= 51 && this.value <= 75){
+      classChoice = this.classes[2];
+    }
+    else if(this.value >= 76 && this.value <= 100){
+      classChoice = this.classes[3];
+    }
+    console.log(classChoice);
+    let filtered: Fish[] = this.AllFish.filter(f => f.meta.scientific_Classification.class == classChoice);
+    this.random = Math.floor(Math.random() * filtered.length)
+    console.log(this.random, filtered[this.random]);
+    //finding in main array
+    this.random = this.AllFish.findIndex(f => f.id == filtered[this.random].id)
+    
+    this.displayReel = true;
+    setTimeout(()=>{
+    this.displayReel = false;
+    this.displayRandom = true;
+    },5000);
   }
 
   Hide(): void{
