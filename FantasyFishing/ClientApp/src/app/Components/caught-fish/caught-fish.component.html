@@ -1,5 +1,6 @@
 <div *ngFor="let f of caughtFish">
     <p>{{ f.fishName }}</p>
     <img src="{{ f.fishImage }}" />
+    <button (click)="removeCaughtFish(f.id!)">x</button>
 </div>
 

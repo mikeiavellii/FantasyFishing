@@ -9,17 +9,14 @@ import { FishService } from 'src/app/Services/fish.service';
   styleUrls: ['./caught-fish.component.css']
 })
 export class CaughtFishComponent implements OnInit {
-  caughtFish: CaughtFish[] = [];
-
-  removeCaughtFish(id: number): void{
-    this.fishService.removeCaughtFish(this.user.id, id).subscribe((response: CaughtFish) => {
-      console.log(response);
-      this.getCaughtFish();
-    });
-  }
 
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
+
+  caughtFish: CaughtFish[] = [];
+
   loggedIn: boolean = false;
+
+  user: SocialUser = {} as SocialUser;
 
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
@@ -36,6 +33,11 @@ export class CaughtFishComponent implements OnInit {
       this.caughtFish = response;
     });
   }
-  user: SocialUser = {} as SocialUser;
 
+  removeCaughtFish(id: number): void{
+    this.fishService.removeCaughtFish(this.user.id, id).subscribe((response: CaughtFish) => {
+      console.log(response);
+      this.getCaughtFish();
+    });
+  }
 }
