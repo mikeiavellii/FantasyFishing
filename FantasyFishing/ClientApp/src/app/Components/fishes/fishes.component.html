@@ -1,15 +1,40 @@
-<div style="height: 400px;" *ngIf="casted == false">
+<!--Hide Insturctions-->
+<div *ngIf="showInstructions == false && hideInstructions == false">
+    <button (click)="GetInstuctions()">Instructions</button>
+</div>
+
+<!--Insturctions-->
+<div *ngIf="showInstructions == true">
+    <div class="card text-center col-8 offset-2 p-2">
+        <h4 class="card-header text-center p-0">Welcome to the All Blue. Here any and all fish can be caught.</h4>
+        <p>Adjust your depth meter to the depth at wish you would like to fish and click the cast button. </p>
+        <p>If you catch something, you can either keep it and add it to your caught list or release it.</p>
+        <p>The caught list can be viewed over on your user profile. I will also display your the trophies you've earned and a few other things so keep fishing the All Blue and don't forget to check your page often.</p>
+        
+        <p >Happy Fishing!</p>
+        <button class="col-2 offset-5" (click)="Hide()">Close</button>
+    </div>
+</div>
+
+<!--Slider Bar-->
+<div style="height: 400px;" *ngIf="casted == false"><!--hide the slider-->
     <ngx-slider [(value)]="value" [options]="options" (userChange)="sliderChange()"></ngx-slider>
 </div>
 
+<!--Cast Line button and flavor text-->
 <button (click)="getSingleFish()" *ngIf="casted == false && value != 0">Cast Line</button>
 <div *ngIf="displayReel == true">
     <h3><b>Looks like Something's Biting!!!</b></h3>
 </div>
+
+
+<!--Cast Line button and flavor text-->
 <div *ngIf="tryAgain == true">
-    <h3>Not even a nibble.. Reel your line in and try again!</h3>
+    <h3>Not even a nibble... Reel your line in and try again!</h3>
     <button (click)="Hide()">Reel In</button>
 </div>
+
+<!--Cast Line button and flavor text-->
 <div *ngIf="displayRandom == true">
     <p>{{ AllFish[this.random].name }}</p>
     <img src="{{ AllFish[this.random].img_Src_Set.link1}}">

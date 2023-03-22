@@ -14,28 +14,33 @@ export class FishesComponent implements OnInit {
 
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
 
+  //Arrays
   AllFish: Fish[] = [];
-
-  random: number = 0;
-  value: number = 0;
-
-  loggedIn: boolean = false;
-  displayRandom: boolean = false;
-  displayReel: boolean = false;
-  canCatchFish: boolean = false;
-  tryAgain: boolean = false;
-  casted: boolean = false;
-
+  numbers: number[] = [
+    5,6,7
+  ]
   classes: string[] = [
     'actinopterygii',
     'chondrichthyes',
     'hyperoartia',
     'myxini'
   ]
-  numbers: number[] = [
-    5,6,7
-  ]
 
+  //Numbers
+  random: number = 0;
+  value: number = 0;
+
+  //Booleans
+  loggedIn: boolean = false;
+  displayRandom: boolean = false;
+  displayReel: boolean = false;
+  canCatchFish: boolean = false;
+  tryAgain: boolean = false;
+  casted: boolean = false;
+  showInstructions: boolean = false;
+  hideInstructions: boolean = false;
+
+  //Slider Bar
   options: Options = {
     floor: 0,
     ceil: 100,
@@ -45,9 +50,11 @@ export class FishesComponent implements OnInit {
       return value + ' meters';
     }
   };
-
+  
+  //Google
   user: SocialUser = {} as SocialUser;
 
+  //OnInit
   ngOnInit(): void{
     this.authService.authState.subscribe((user) => {
       this.user = user;
@@ -61,6 +68,8 @@ export class FishesComponent implements OnInit {
     // console.log(this.value);
   }
 
+
+//Methods
   getFish(): void{
     this.fishService.getFish().subscribe((response: Fish[]) => {
       console.log(response);
@@ -69,17 +78,15 @@ export class FishesComponent implements OnInit {
   }
 
   getSingleFish(): void{
- 
+  //Booleans
     this.casted = true;
-
     this.canCatchFish = false;
-
     this.tryAgain = false;
+    this.hideInstructions = false;
 
+  //Determine if Failure
     let pickNumber:number = Math.floor((Math.random() * this.numbers.length)) + 1;
-    
     console.log(pickNumber)
-
     if (pickNumber == 1){
       this.canCatchFish = true;
     }
@@ -90,9 +97,9 @@ export class FishesComponent implements OnInit {
       this.tryAgain = true;
     }
 
+  //Class by Depth
     let classChoice: string = "";
     if(this.canCatchFish == true) {
-
       if(this.value >= 1 && this.value <= 25){
         classChoice = this.classes[0];
       }
@@ -106,18 +113,30 @@ export class FishesComponent implements OnInit {
         classChoice = this.classes[3];
       }
       console.log(classChoice);
+
+    //Sort by depth
       let filtered: Fish[] = this.AllFish.filter(f => f.meta.scientific_Classification.class == classChoice);
       this.random = Math.floor(Math.random() * filtered.length)
       console.log(this.random, filtered[this.random]);
       //finding in main array
       this.random = this.AllFish.findIndex(f => f.id == filtered[this.random].id)
       
+      //booleans pre cast
       this.displayReel = true;
+      this.hideInstructions = true;
       setTimeout(()=>{
+      //booleans post cast
       this.displayReel = false;
       this.displayRandom = true;
       },5000);
     }
+  }
+  
+  GetInstuctions(): void{
+    this.showInstructions = true;
+    this.value = 0;
+    this.casted = true;
+    this.tryAgain = false;
   }
 
   Hide(): void{
@@ -125,6 +144,7 @@ export class FishesComponent implements OnInit {
     this.value = 0;
     this.casted = false;
     this.tryAgain = false;
+    this.showInstructions = false;
   }
 
   addCaughtFish( fishNAME: string, fishIMAGE: ImgLink, fishCLASS: SciClass): void{
