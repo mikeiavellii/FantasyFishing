@@ -6,7 +6,7 @@
     height: 300pt;
     margin: 0;
     display: flex;
-    border: 0;
+    border: transparent;
 }
   
 .card-front {

@@ -1,13 +1,13 @@
-<div style="height:200px" *ngIf="casted == false">
+<div style="height: 400px;" *ngIf="casted == false">
     <ngx-slider [(value)]="value" [options]="options" (userChange)="sliderChange()"></ngx-slider>
 </div>
 
 <button (click)="getSingleFish()" *ngIf="casted == false && value != 0">Cast Line</button>
 <div *ngIf="displayReel == true">
-    <p>Looks like somethings biting!!!</p>
+    <h3><b>Looks like Something's Biting!!!</b></h3>
 </div>
 <div *ngIf="tryAgain == true">
-    <p>Nothing is biting! Reel your line in and try again!</p>
+    <h3>Not even a nibble.. Reel your line in and try again!</h3>
     <button (click)="Hide()">Reel In</button>
 </div>
 <div *ngIf="displayRandom == true">

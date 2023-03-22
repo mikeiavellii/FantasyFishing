@@ -17,19 +17,13 @@ export class FishesComponent implements OnInit {
   AllFish: Fish[] = [];
 
   random: number = 0;
-
   value: number = 0;
 
   loggedIn: boolean = false;
-
   displayRandom: boolean = false;
-
   displayReel: boolean = false;
-
   canCatchFish: boolean = false;
-
   tryAgain: boolean = false;
-
   casted: boolean = false;
 
   classes: string[] = [
@@ -91,11 +85,9 @@ export class FishesComponent implements OnInit {
     }
     else if(pickNumber == 2){
       this.canCatchFish = true;
-      
     }
     else if(pickNumber == 3){
       this.tryAgain = true;
-      
     }
 
     let classChoice: string = "";
