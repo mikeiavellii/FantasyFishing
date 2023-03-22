@@ -26,11 +26,18 @@ export class FishesComponent implements OnInit {
 
   displayReel: boolean = false;
 
+  canCatchFish: boolean = false;
+
+  tryAgain: boolean = false;
+
   classes: string[] = [
     'actinopterygii',
     'chondrichthyes',
     'hyperoartia',
     'myxini'
+  ]
+  numbers: number[] = [
+    5,6,7
   ]
 
   options: Options = {
@@ -67,6 +74,20 @@ export class FishesComponent implements OnInit {
     // console.log(this.random, this.AllFish[this.random]);
     // this.displayRandom = true;
     // });
+    let pickNumber:number = Math.floor((Math.random() * this.numbers.length));
+    if (pickNumber = 5){
+      this.canCatchFish == false;
+      console.log(pickNumber)
+    }
+    else if(pickNumber = 6){
+      this.canCatchFish == true;
+      console.log(pickNumber)
+    }
+    else if(pickNumber = 7){
+      this.tryAgain == true;
+      console.log(pickNumber)
+    }
+
     let classChoice: string = "";
     if(this.value >= 1 && this.value <= 25){
       classChoice = this.classes[0];

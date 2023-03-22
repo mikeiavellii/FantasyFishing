@@ -6,6 +6,9 @@
 <div *ngIf="displayReel == true">
     <p>Reel in your fish(MOVE REEL BAR BACK TO 0)</p>
 </div>
+<div *ngIf="tryAgain == true">
+    <p>Nothing is biting! Reel your line in and try again!</p>
+</div>
 <div *ngIf="displayRandom == true">
     <p>{{ AllFish[this.random].name }}</p>
     <button (click)="addCaughtFish(AllFish[this.random].name, AllFish[this.random].img_Src_Set, AllFish[this.random].meta.scientific_Classification)">🎣📋</button>
