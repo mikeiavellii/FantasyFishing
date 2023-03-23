@@ -1,3 +1,11 @@
+<!--Video Background-->
+<div class="m-0 myVideo" *ngIf="loggedIn && hideBackground == false">	
+	<div class="pt-5 mt-5"></div>
+	<video id="background-video" autoplay loop>
+		<source src="assets/Water.mp4" type="video/mp4">
+	</video>
+<button (click)="hideBackground = true">Hide BG</button>
+
 <!--Hide Insturctions-->
 <div *ngIf="showInstructions == false && hideInstructions == false">
     <button (click)="GetInstuctions()">Instructions</button>
@@ -5,42 +13,55 @@
 
 <!--Insturctions-->
 <div *ngIf="showInstructions == true">
-    <div class="card text-center col-8 offset-2 p-2">
-        <h4 class="card-header text-center p-0">Welcome to the All Blue. Here any and all fish can be caught.</h4>
-        <p>Adjust your depth meter to the depth at wish you would like to fish and click the cast button. </p>
-        <p>If you catch something, you can either keep it and add it to your caught list or release it.</p>
-        <p>The caught list can be viewed over on your user profile. I will also display your the trophies you've earned and a few other things so keep fishing the All Blue and don't forget to check your page often.</p>
-        
+    <div class="card text-center col-8 offset-2 ">
+        <h4 class="card-header text-center">Welcome to the All Blue.</h4>
+        <br>
+        <p>
+            Here any and all fish can be caught.<br>
+            Adjust your depth using the meter on the left and click the cast button when you're ready to fish.<br>
+            Sometimes the fish just aren't biting, but if you do catch something, you can either keep it and add it to your profile or release it.<br>
+            Your caught list can be viewed over on your user profile. I will also display the trophies you've earned and a few other things so keep fishing the All Blue and don't forget to check your profile often to see if you've earned anything new.
+        </p>
         <p >Happy Fishing!</p>
         <button class="col-2 offset-5" (click)="Hide()">Close</button>
     </div>
 </div>
 
 <!--Slider Bar-->
-<div style="height: 400px;" *ngIf="casted == false"><!--hide the slider-->
-    <ngx-slider [(value)]="value" [options]="options" (userChange)="sliderChange()"></ngx-slider>
+<div class="card col-1 bg-gray">
+    <div class="p-2" style="height: 400px;" *ngIf="casted == false"><!--hide the slider-->
+        <ngx-slider [(value)]="value" [options]="options" (userChange)="sliderChange()"></ngx-slider>
+    </div>
 </div>
-
 <!--Cast Line button and flavor text-->
 <button (click)="getSingleFish()" *ngIf="casted == false && value != 0">Cast Line</button>
-<div *ngIf="displayReel == true">
-    <h3><b>Looks like Something's Biting!!!</b></h3>
+
+
+<div class="card col-3"  *ngIf="displayReel == true">
+    <h3 class="text-center"><b>Looks like Something's Biting!!!</b></h3>
 </div>
 
 
+
 <!--Cast Line button and flavor text-->
-<div *ngIf="tryAgain == true">
+<div class="card col-1 bg-gray" *ngIf="tryAgain == true">
     <h3>Not even a nibble... Reel your line in and try again!</h3>
     <button (click)="Hide()">Reel In</button>
 </div>
 
 <!--Cast Line button and flavor text-->
-<div *ngIf="displayRandom == true">
-    <p>{{ AllFish[this.random].name }}</p>
+<div class="card col-1 bg-gray" *ngIf="displayRandom == true">
+    <p class="card-header">{{ AllFish[this.random].name }}</p>
     <img src="{{ AllFish[this.random].img_Src_Set.link1}}">
     <button (click)="addCaughtFish(AllFish[this.random].name, AllFish[this.random].img_Src_Set, AllFish[this.random].meta.scientific_Classification)">🎣📋</button>
     <button (click)="Hide()">Release</button>
 </div>
 
-
-
+<!--ACHIEVEMENT Badge-->
+<!-- <div class="fixed-bottom align-itmes-end">
+    <div class=" b-0 offset-3 p-2">
+        <div>
+            <img src="assets/5FishA.png">
+        </div>
+    </div>
+</div> -->

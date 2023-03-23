@@ -39,6 +39,7 @@ export class FishesComponent implements OnInit {
   casted: boolean = false;
   showInstructions: boolean = false;
   hideInstructions: boolean = false;
+  hideBackground: boolean = false;
 
   //Slider Bar
   options: Options = {

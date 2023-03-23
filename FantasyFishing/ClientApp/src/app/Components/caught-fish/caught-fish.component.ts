@@ -15,6 +15,7 @@ export class CaughtFishComponent implements OnInit {
   caughtFish: CaughtFish[] = [];
 
   loggedIn: boolean = false;
+  display: boolean = false;
 
   user: SocialUser = {} as SocialUser;
 
@@ -27,6 +28,9 @@ export class CaughtFishComponent implements OnInit {
       this.loggedIn = (user != null);
       this.getCaughtFish();
     });
+  }
+  toggleDisplay(){
+    this.display = !this.display;
   }
 
   getCaughtFish(): void{

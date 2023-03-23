@@ -14,44 +14,45 @@ export class NavMenuComponent {
 
   constructor(private authService: SocialAuthService) { }
 
-  the: boolean = false;
+  //Booleans
+  // showInstructions: boolean = false;
+  // hideInstructions: boolean = false;
+  loggedIn: boolean = false;
 
+  //User
+  user: SocialUser = {} as SocialUser;
+
+  //Sign In
   signInWithGoogle(): void {
-
 	  this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    this.the = true;
   }
 
+  //Sign Out
+  signOut(): void {
+	  this.authService.signOut();
+  }
+
+  //potential delay log out for leaving All Blue
   // signOut(): void {
   //   setTimeout(()=>{
 	// this.authService.signOut();
   // },5000);
   // the:false;
   // }    
-  signOut(): void {
-	  this.authService.signOut();
-    this.the = false;
-  }
 
   collapse() {
     this.isExpanded = false;
   }
-
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
 
-  user: SocialUser = {} as SocialUser;
-
+  //OnInit
   ngOnInit(): void {
-
     this.authService.authState.subscribe((user) => {
       this.user = user;
       console.log(user);
       this.loggedIn = (user != null);
-    
     });
   }
-  
-  loggedIn: boolean = false;
 }

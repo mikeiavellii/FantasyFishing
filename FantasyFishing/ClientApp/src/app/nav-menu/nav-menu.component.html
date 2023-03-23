@@ -20,6 +20,10 @@
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow">
+          <!-- <li class="nav-item">
+            <button class="btn btn-outline-dark border-0" *ngIf="showInstructions == false && hideInstructions == false">Instructions</button>
+          </li> -->
+
           <li
             class="nav-item"
             [routerLinkActive]="['link-active']"
