@@ -1,43 +1,43 @@
+<div class="background-img">
 
-<!-- <div class="btn-group">
-    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trophies</button>
-    <div class="dropdown-menu">
-        <div class="dropdown-item" *ngIf="caughtFish.length >= 5"><img src="assets/trophy1.png" /></div>
-        <img *ngIf="caughtFish.length >= 25" src="assets/trophy2.png" />
-        <img *ngIf="caughtFish.length >= 200" src="assets/trophy3.png" />
-        <img *ngIf="caughtFish.length >= 500" src="assets/trophy4.png" />
+    <button (click)="toggleDisplay()">Trophies</button>
+    <!-- <div *ngIf="display">
+        <img *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
+        <img *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
+        <img *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
+        <img *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
+    </div> -->
+    <div *ngIf="display">
+        <img *ngIf="caughtFish.length >= 2" src="assets/5FishA.png" />
+        <img *ngIf="caughtFish.length >= 4" src="assets/25FishA.png" />
+        <img *ngIf="caughtFish.length >= 6" src="assets/200FishA.png" />
+        <img *ngIf="caughtFish.length >= 8" src="assets/500FishA.png" />
     </div>
-</div> -->
-<button (click)="toggleDisplay()">Trophies</button>
-<div *ngIf="display">
-    <img *ngIf="caughtFish.length >= 5" src="assets/trophy1.png"/>
-    <img *ngIf="caughtFish.length >= 25" src="assets/trophy2.png"/>
-    <img *ngIf="caughtFish.length >= 200" src="assets/trophy3.png"/>
-    <img *ngIf="caughtFish.length >= 500" src="assets/trophy4.png"/>
-</div>
-<div class="container">
-    <div class="row">
-        <div *ngFor="let f of caughtFish; index as i" class="col-sm-4 mb-4">
-            <div>
-                <div class="card card-flip h-100 bg-transparent">
-                    <div class="card-front">
-                        <div class="card-body">
-                            <button (click)="removeCaughtFish(f.id!)">x</button>
-                            <i class="fa fa-search fa-5x float-right"></i>
-                            <h3 class="card-title">Fish:</h3>
-                            <p class="card-text">{{ f.fishName }}</p>
-                            <img class="img img-fluid" src="{{ f.fishImage }}" />
+
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let f of caughtFish; index as i" class="col-sm-4 mb-4">
+                <div>
+                    <div class="card card-flip h-100 bg-transparent">
+                        <div class="card-front">
+                            <div class="card-body">
+                                <button (click)="removeCaughtFish(f.id!)">x</button>
+                                <i class="fa fa-search fa-5x float-right"></i>
+                                <h3 class="card-title">Fish:</h3>
+                                <p class="card-text">{{ f.fishName }}</p>
+                                <img class="img img-fluid" src="{{ f.fishImage }}" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-back bg-white">
-                        <div class="card-body">
-                            <h3 class="card-title">Info:</h3>
-                            <!-- <p class="card-text">{{ f.scientificClass.kingdom }}</p> -->
+                        <div class="card-back bg-white">
+                            <div class="card-body">
+                                <h3 class="card-title">Info:</h3>
+                                <!-- <p class="card-text">{{ f.scientificClass.kingdom }}</p> -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+</div>

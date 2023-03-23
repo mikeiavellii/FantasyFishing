@@ -28,3 +28,11 @@
 .card-flip:active .card-back {
     transform: rotateY(0deg);
 }
+
+.background-img {
+    background-image: url("/assets/TackleShop.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

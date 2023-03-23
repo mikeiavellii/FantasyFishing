@@ -16,3 +16,10 @@
     min-width: 100%;
     min-height: 100%;
   }
+  .background-img {
+    background-image: url("/assets/Water.gif");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
