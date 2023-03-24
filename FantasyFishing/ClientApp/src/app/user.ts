@@ -2,11 +2,11 @@ import { CurrencyPipe } from "@angular/common";
 
 export interface User {
     id: number;
-    username: string;
-    googlename:string;
-    currency: number | CurrencyPipe;
-    betterod: boolean;
-    cleanwaters: boolean;
-    fasterreel: boolean;
-    userlevel: number;
+    userName: string;
+    googleName:string;
+    currency: number;
+    betteRod: boolean;
+    cleanWaters: boolean;
+    fasterReel: boolean;
+    userLevel: number;
 }

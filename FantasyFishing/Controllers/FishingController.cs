@@ -75,7 +75,7 @@ namespace FantasyFishing.Controllers
                 UserInfo newUser = new UserInfo();
                 newUser.UserName = UserName;
                 newUser.GoogleName = GoogleName;
-                newUser.Currency = 1m;
+                newUser.Currency = 1;
                 newUser.BetterRod = false;
                 newUser.CleanWaters = false;
                 newUser.FasterReel = false;
@@ -93,6 +93,18 @@ namespace FantasyFishing.Controllers
 
         }
 
+        [HttpGet("AllUsers")]
+        public List<UserInfo> AllUsers()
+        {
+            return dbcontext.UserInfos.ToList();
+        }
+        [HttpGet("UserById")]
+        public UserInfo UserById(string id)
+        {
+            UserInfo u = dbcontext.UserInfos.FirstOrDefault(u => u.UserName == id);
+              
+            return u;
+        }
 
         [HttpDelete("DeleteCaughtFish")]
         public void DeleteCaughtFish(int id)

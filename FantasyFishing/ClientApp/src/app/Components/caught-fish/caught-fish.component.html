@@ -7,9 +7,9 @@
           <h3 class="card-header text-center p-0">Fishing License</h3>
           <div class="pt-0">
             <p><img src="{{ user.photoUrl }}" /></p>
-            <p>Name: {{ user.name }}</p>
+            <p>Name: {{ UserData.googleName }}</p>
             <p>License NO: xx-{{ user.id }}-xx</p>
-            <p>Level:</p>
+            <p>Level: {{ UserData.userLevel }}</p>
             <p>Expiration Date: 12/31/2023</p>
           </div>
         </div>
@@ -24,21 +24,24 @@
     </div> -->
         <div *ngIf="display">
           <img *ngIf="sharkB" src="assets/5sharks.png" />
-          <img *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
+          <img class="img-fluid" *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
           <img *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
           <img *ngIf="caughtFish.length >= 50" src="assests/50FishA.png" />
           <img *ngIf="caughtFish.length >= 100" src="assests/100FishA.png" />
           <img *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
           <img *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
         </div>
+    <app-leaderboard></app-leaderboard>
       </div>
+    </div>
+
       <div class="col col-8">
         <!--Caught list Column-->
         <div class="container">
           <div class="row">
             <div *ngFor="let f of caughtFish; index as i" class="col-sm-4 mb-4">
               <div>
-                <div class="card card-flip h-100 bg-transparent">
+                <div class="card card-flip fluid bg-transparent">
                   <div class="card-front">
                     <div class="card-body">
                       <button (click)="removeCaughtFish(f.id!)">x</button>
@@ -64,5 +67,5 @@
       </div>
     </div>
   </div>
-</div>
+
 

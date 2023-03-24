@@ -11,7 +11,7 @@ public partial class UserInfo
 
     public string? GoogleName { get; set; }
 
-    public decimal? Currency { get; set; }
+    public double? Currency { get; set; }
 
     public bool? BetterRod { get; set; }
 

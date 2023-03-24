@@ -1,8 +1,12 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
+
 import { CaughtFish } from 'src/app/Models/caught-fish';
 import { Fish } from 'src/app/Models/fish';
 import { FishService } from 'src/app/Services/fish.service';
+import { UserService } from 'src/app/Services/user.service';
+import { User } from 'src/app/user';
+
 
 
 @Component({
@@ -12,10 +16,10 @@ import { FishService } from 'src/app/Services/fish.service';
 })
 export class CaughtFishComponent implements OnInit {
 
-  constructor(private fishService: FishService, private authService: SocialAuthService) { }
+  constructor(private fishService: FishService, private authService: SocialAuthService, private userService: UserService) { }
 
   fish: Fish = {} as Fish;
-
+  UserData: User = {} as User;
   caughtFish: CaughtFish[] = [];
 
   loggedIn: boolean = false;
@@ -34,9 +38,16 @@ export class CaughtFishComponent implements OnInit {
       console.log(user);
       this.loggedIn = (user != null);
       this.getCaughtFish();
+      this.getUserData();
     });
   }
 
+  getUserData():void{
+    this.userService.getUserById(this.user.id).subscribe((response:User)=> {
+      this.UserData = response;
+      console.log(this.UserData);
+    })
+  }
   toggleDisplay(){
     this.display = !this.display;
   }
