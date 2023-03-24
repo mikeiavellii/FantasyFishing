@@ -29,7 +29,7 @@
     transform: rotateY(0deg);
 }
 
-.background-img {
+/* .background-img {
     background-image: url("assets/TackleShop.jpg");
     height: 100%;
     background-position: center;
@@ -41,4 +41,4 @@
     background-image: url("assets/Seal.png");
     background-position: center;
     opacity: 50;
-}
+} */

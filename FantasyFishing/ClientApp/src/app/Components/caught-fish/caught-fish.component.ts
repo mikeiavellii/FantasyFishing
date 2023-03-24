@@ -1,6 +1,7 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
 import { CaughtFish } from 'src/app/Models/caught-fish';
+import { Fish } from 'src/app/Models/fish';
 import { FishService } from 'src/app/Services/fish.service';
 
 
@@ -13,12 +14,17 @@ export class CaughtFishComponent implements OnInit {
 
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
 
+  fish: Fish = {} as Fish;
+
   caughtFish: CaughtFish[] = [];
 
   loggedIn: boolean = false;
   display: boolean = false;
+  sharkB: boolean = false;
 
   user: SocialUser = {} as SocialUser;
+
+  money: number = 0;
 
   // trophy: boolean = false;
 
@@ -30,6 +36,7 @@ export class CaughtFishComponent implements OnInit {
       this.getCaughtFish();
     });
   }
+
   toggleDisplay(){
     this.display = !this.display;
   }
@@ -38,6 +45,7 @@ export class CaughtFishComponent implements OnInit {
     this.fishService.getCaughtFish(this.user.id).subscribe((response: CaughtFish[]) => {
       console.log(response);
       this.caughtFish = response;
+      this.sharkB = this.sharkS();
     });
   }
 
@@ -46,6 +54,13 @@ export class CaughtFishComponent implements OnInit {
       console.log(response);
       this.getCaughtFish();
     });
+  }
+
+  sharkS(): boolean{
+    let sharkSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
+    cf.fishName.toLowerCase().includes('shark')
+  ));
+    return sharkSet.size >= 5;
   }
 
   // addTrophy(): void{

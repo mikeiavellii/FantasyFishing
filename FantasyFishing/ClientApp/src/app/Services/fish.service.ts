@@ -18,7 +18,7 @@ export class FishService {
   }
 
   addCaughtFish(newCatch: CaughtFish): Observable<CaughtFish>{
-    return this.http.post<CaughtFish>(`${this.baseUrl}${this.url}/AddCaughtFish?userId=${newCatch.userId}&fishName=${newCatch.fishName}&fishImage=${newCatch.imageLink.link1}&fishFamily=${newCatch.scientificClass.family}&species=${newCatch.scientificClass.species}`, {});
+    return this.http.post<CaughtFish>(`${this.baseUrl}${this.url}/AddCaughtFish?userId=${newCatch.userId}&fishName=${newCatch.fishName}&fishImage=${newCatch.imageLink.link1}&fishClass=${newCatch.fishClass}&fishOrder=${newCatch.fishOrder}&fishFamily=${newCatch.fishFamily}&genus=${newCatch.genus}&species=${newCatch.species}`, {});
   }
 
   getCaughtFish(userId: string): Observable<CaughtFish[]>{
