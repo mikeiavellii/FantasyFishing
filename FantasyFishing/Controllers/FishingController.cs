@@ -50,13 +50,16 @@ namespace FantasyFishing.Controllers
 
 
         [HttpPost("AddCaughtFish")]
-        public CaughtFish AddCaughtFish(string userId, string fishName, string fishImage, string fishFamily, string species)
+        public CaughtFish AddCaughtFish(string userId, string fishName, string fishImage, string fishClass, string fishOrder, string fishFamily, string genus, string species)
         {
             CaughtFish newCatch = new CaughtFish();
             newCatch.UserId = userId;
             newCatch.FishName = fishName;
             newCatch.FishImage = fishImage;
+            newCatch.FishClass = fishClass;
+            newCatch.FishOrder = fishOrder;
             newCatch.FishFamily = fishFamily;
+            newCatch.Genus = genus;
             newCatch.Species = species;
 
             dbcontext.CaughtFishes.Add(newCatch);

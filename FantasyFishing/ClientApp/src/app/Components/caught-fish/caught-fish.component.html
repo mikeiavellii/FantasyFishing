@@ -8,10 +8,13 @@
         <img *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
     </div> -->
     <div *ngIf="display">
-        <img *ngIf="caughtFish.length >= 2" src="assets/5FishA.png" />
-        <img *ngIf="caughtFish.length >= 4" src="assets/25FishA.png" />
-        <img *ngIf="caughtFish.length >= 6" src="assets/200FishA.png" />
-        <img *ngIf="caughtFish.length >= 8" src="assets/500FishA.png" />
+        <img *ngIf="sharkB" src="assets/5sharks.png"/>
+        <img *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
+        <img *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
+        <img *ngIf="caughtFish.length >= 50" src="assests/50FishA.png"/>
+        <img *ngIf="caughtFish.length >= 100" src="assests/100FishA.png"/>
+        <img *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
+        <img *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
     </div>
 
     <div class="container">
@@ -31,7 +34,9 @@
                         <div class="card-back bg-white">
                             <div class="card-body">
                                 <h3 class="card-title">Info:</h3>
-                                <!-- <p class="card-text">{{ f.scientificClass.kingdom }}</p> -->
+                                <p class="card-text">Class: {{ f.fishClass }}</p>
+                                <p class="card-text">Order: {{ f.fishOrder }}</p>
+                                <p class="card-text">Family: {{ f.fishFamily }}</p>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,11 @@ export interface CaughtFish {
     userId: string;
     fishName: string;
     imageLink: ImgLink;
-    scientificClass: SciClass;
     fishImage: string;
+    scientificClass: SciClass;
+    fishClass: string;
+    fishOrder: string;
+    fishFamily: string;
+    genus: string;
+    species: string;
 }

@@ -153,8 +153,13 @@ export class FishesComponent implements OnInit {
       userId: this.user.id,
       fishName: fishNAME,
       imageLink: fishIMAGE,
-      scientificClass: fishCLASS,
       fishImage: "",
+      scientificClass: fishCLASS,
+      fishClass: fishCLASS.class,
+      fishOrder: fishCLASS.order,
+      fishFamily: fishCLASS.family,
+      genus: fishCLASS.genus,
+      species: fishCLASS.species,
     }
     console.log(newCatch);
     this.displayRandom = false;
