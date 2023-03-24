@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace FantasyFishing.Models;
@@ -16,4 +16,10 @@ public partial class CaughtFish
     public string? FishFamily { get; set; }
 
     public string? Species { get; set; }
+
+    public string? FishClass { get; set; }
+
+    public string? FishOrder { get; set; }
+
+    public string? Genus { get; set; }
 }

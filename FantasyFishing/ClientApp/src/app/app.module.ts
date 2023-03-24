@@ -12,6 +12,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FishesComponent } from './Components/fishes/fishes.component';
 import { CaughtFishComponent } from './Components/caught-fish/caught-fish.component';
+import { LeaderboardComponent } from './Components/leaderboard/leaderboard.component';
 
 
 
@@ -24,7 +25,8 @@ import { CaughtFishComponent } from './Components/caught-fish/caught-fish.compon
     CounterComponent,
     FetchDataComponent,
     FishesComponent,
-    CaughtFishComponent
+    CaughtFishComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

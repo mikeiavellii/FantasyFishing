@@ -64,6 +64,32 @@ namespace FantasyFishing.Controllers
             return newCatch;
         }
 
+        [HttpPost("AddUser")]
+        public UserInfo AddUser(string UserName, string GoogleName)
+        {
+            if (dbcontext.UserInfos.Any(c => c.UserName == UserName) == false){
+                List<UserInfo> users = new List<UserInfo>();
+                UserInfo newUser = new UserInfo();
+                newUser.UserName = UserName;
+                newUser.GoogleName = GoogleName;
+                newUser.Currency = 1m;
+                newUser.BetterRod = false;
+                newUser.CleanWaters = false;
+                newUser.FasterReel = false;
+                newUser.UserLevel = 1;
+
+                users.Add(newUser);
+                dbcontext.UserInfos.Add(newUser);
+                dbcontext.SaveChanges();
+                return newUser;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
 
         [HttpDelete("DeleteCaughtFish")]
         public void DeleteCaughtFish(int id)

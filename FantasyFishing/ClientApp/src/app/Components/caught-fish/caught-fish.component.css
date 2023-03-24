@@ -30,9 +30,15 @@
 }
 
 .background-img {
-    background-image: url("/assets/TackleShop.jpg");
+    background-image: url("assets/TackleShop.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+.seal{
+    background-image: url("assets/Seal.png");
+    background-position: center;
+    opacity: 50;
+}

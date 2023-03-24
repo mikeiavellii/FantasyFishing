@@ -2,6 +2,7 @@ import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component } from '@angular/core';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { CaughtFishComponent } from '../Components/caught-fish/caught-fish.component';
+import { UserService } from '../Services/user.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { CaughtFishComponent } from '../Components/caught-fish/caught-fish.compo
 export class NavMenuComponent {
   isExpanded = false;
 
-  constructor(private authService: SocialAuthService) { }
+  constructor(private authService: SocialAuthService, private userService: UserService) { }
 
   //Booleans
   // showInstructions: boolean = false;
@@ -53,6 +54,9 @@ export class NavMenuComponent {
       this.user = user;
       console.log(user);
       this.loggedIn = (user != null);
+      this.userService.addUser(this.user.id, this.user.name).subscribe((response) => {
+      console.log(response);
     });
-  }
+  });
+}
 }

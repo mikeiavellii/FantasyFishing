@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CaughtFish } from 'src/app/Models/caught-fish';
 import { FishService } from 'src/app/Services/fish.service';
 
+
 @Component({
   selector: 'app-caught-fish',
   templateUrl: './caught-fish.component.html',
