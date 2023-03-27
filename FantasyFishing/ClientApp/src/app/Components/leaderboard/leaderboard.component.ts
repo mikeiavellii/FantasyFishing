@@ -10,11 +10,16 @@ import { User } from 'src/app/user';
 export class LeaderboardComponent implements OnInit {
 
   constructor(private userService:UserService) { }
+
   Users:User[] =[];
+
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe((response)=>{
+    this.updateLeaderboard();
+  }
+
+  updateLeaderboard(): void {
+    this.userService.getAllUsers().subscribe((response) => {
       this.Users = response; 
     });
   }
-
 }

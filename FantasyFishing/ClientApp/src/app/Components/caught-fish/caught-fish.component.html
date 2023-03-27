@@ -5,12 +5,13 @@
       <div class="col col-4">
         <div class="card seal">
           <h3 class="card-header text-center p-0">Fishing License</h3>
-          <div class="pt-0">
+          <div style="color: blue;" class="pt-0">
             <p><img src="{{ user.photoUrl }}" /></p>
             <p>Name: {{ UserData.googleName }}</p>
             <p>License NO: xx-{{ user.id }}-xx</p>
             <p>Level: {{ UserData.userLevel }}</p>
             <p>Expiration Date: 12/31/2023</p>
+            <p>Wallet: {{ UserData.currency | currency }} </p>
           </div>
         </div>
 
@@ -23,13 +24,13 @@
         <img *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
     </div> -->
         <div *ngIf="display">
-          <img *ngIf="sharkB" src="assets/5sharks.png" />
+          <img class="img-fluid" *ngIf="sharkB" src="assets/5sharks.png" />
           <img class="img-fluid" *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
-          <img *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
-          <img *ngIf="caughtFish.length >= 50" src="assests/50FishA.png" />
-          <img *ngIf="caughtFish.length >= 100" src="assests/100FishA.png" />
-          <img *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
-          <img *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
+          <img class="img-fluid" *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
+          <img class="img-fluid" *ngIf="caughtFish.length >= 50" src="assests/50FishA.png" />
+          <img class="img-fluid" *ngIf="caughtFish.length >= 100" src="assests/100FishA.png" />
+          <img class="img-fluid" *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
+          <img class="img-fluid" *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
         </div>
     <app-leaderboard></app-leaderboard>
       </div>
@@ -44,7 +45,7 @@
                 <div class="card card-flip fluid bg-transparent">
                   <div class="card-front">
                     <div class="card-body">
-                      <button (click)="removeCaughtFish(f.id!)">x</button>
+                      <button (click)="removeCaughtFish(f.id!, f)">x</button>
                       <i class="fa fa-search fa-5x float-right"></i>
                       <h3 class="card-title">Fish:</h3>
                       <p class="card-text">{{ f.fishName }}</p>

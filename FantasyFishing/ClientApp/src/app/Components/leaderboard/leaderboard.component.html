@@ -1,8 +1,22 @@
 <!--Leader Board-->
 <div class="containers">
-    <h3 class="card-header text-center p-0">Leader Board</h3>
+    <h3 style="color: white;" class="card-header text-center p-0">Leader Board</h3>
     <div class="card">
     <div *ngFor="let u of Users" class="rows">
-        <div class="name">{{ u.googleName }}</div><div class="score">{{ u.currency | currency }}</div>
+        <div class="name">{{ u.googleName }}</div>
+        <div class="score">{{ u.currency | currency }}</div>
     </div>
 </div>
+
+<!-- <div ng-controller="ExampleController">
+    <table *ngFor="let u of Users" class="Leaders">
+      <tr>
+        <th>Name</th>
+        <th>Currency</th>
+      </tr>
+      <tr ng-repeat="let u of Users | orderBy:'-Currency'">
+        <td>{{ u.googleName }}</td>
+        <td>{{ u.currency | currency }}</td>
+      </tr>
+    </table>
+  </div> -->

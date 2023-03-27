@@ -1,81 +1,88 @@
 .card-flip > div {
-    backface-visibility: hidden;
-    transition: transform 1000ms;
-    transition-timing-function: linear;
-    width: 100%;
-    height: 300pt;
-    margin: 0;
-    display: flex;
-    border: transparent;
+  backface-visibility: hidden;
+  transition: transform 1000ms;
+  transition-timing-function: linear;
+  width: 100%;
+  height: 300pt;
+  margin: 0;
+  display: flex;
+  border: transparent;
 }
   
 .card-front {
-    transform: rotateY(0deg);
-    
-    background-image: url("https://img.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg");
+  transform: rotateY(0deg);
+  background-image: url("https://img.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg");
 }
   
 .card-back {
-    transform: rotateY(180deg);
-    position: absolute;
-    background-image: url("https://img.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg");
-    top: 0;
+  transform: rotateY(180deg);
+  position: absolute;
+  background-image: url("https://img.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg");
+  top: 0;
 }
   
 .card-flip:active .card-front{
-    transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
     
 .card-flip:active .card-back {
-    transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
-/* .background-img {
-    background-image: url("assets/TackleShop.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+.background-img {
+  /* background-image: url("../../../assets/TackleShop.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background: url("../../../assets/TackleShop.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .seal{
-    background-image: url("assets/Seal.png");
-    background-position: center;
-    opacity: 50;
-} */
+  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("../../../assets/Seal.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  width: 100%;
+  opacity: 50;
+}
 
-.containers {
-
-    height: auto;
-  }
+.container {
+  height: 100%;
+}
   
-  .rows {
-    width: 100%;
-    height: 40px;
-    border-bottom: 1px solid #AFAFAF;
-  }
+.rows {
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid #AFAFAF;
+}
   
-  .name {
-    position: relative;
-    display: inline-block;
-    width: 75%;
-    line-height: 45px;
-  }
+.name {
+  position: relative;
+  display: inline-block;
+  width: 75%;
+  line-height: 45px;
+}
   
-  .score {
-    position: relative;
-    display: inline-block;
-    width: 25%;
-  }
+.score {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+}
   
-  .rows:nth-child(1) {
-    background: gold;
-  }
+.rows:nth-child(1) {
+  background: gold;
+}
   
-  .rows:nth-child(2) {
-    background: #c0c0c0;
-  }
+.rows:nth-child(2) {
+  background: #c0c0c0;
+}
   
-  .rows:nth-child(3) {
-    background: #cd7f32;
-  }
+.rows:nth-child(3) {
+  background: #cd7f32;
+}

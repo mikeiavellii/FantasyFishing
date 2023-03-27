@@ -1,11 +1,12 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { CaughtFish } from 'src/app/Models/caught-fish';
 import { Fish } from 'src/app/Models/fish';
 import { FishService } from 'src/app/Services/fish.service';
 import { UserService } from 'src/app/Services/user.service';
 import { User } from 'src/app/user';
+import { LeaderboardComponent } from '../leaderboard/leaderboard.component';
 
 
 
@@ -28,8 +29,8 @@ export class CaughtFishComponent implements OnInit {
 
   user: SocialUser = {} as SocialUser;
 
-  money: number = 0;
-
+  money: number = 1;
+  @ViewChild(LeaderboardComponent) leaderBoard!: LeaderboardComponent;
   // trophy: boolean = false;
 
   ngOnInit(): void {
@@ -60,10 +61,12 @@ export class CaughtFishComponent implements OnInit {
     });
   }
 
-  removeCaughtFish(id: number): void{
+  removeCaughtFish(id: number, caughtFish: CaughtFish): void{
+    this.UserData.currency += caughtFish.fishName.length;
     this.fishService.removeCaughtFish(this.user.id, id).subscribe((response: CaughtFish) => {
       console.log(response);
       this.getCaughtFish();
+      this.leaderBoard.updateLeaderboard();
     });
   }
 
