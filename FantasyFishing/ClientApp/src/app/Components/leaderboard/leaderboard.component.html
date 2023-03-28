@@ -9,13 +9,3 @@
 </div>
 
 
-    <table *ngFor="let u of Users" class="Leaders">
-      <tr>
-        <th>Name</th>
-        <th>Currency</th>
-      </tr>
-      <tr ng-repeat="let u of Users | orderBy:'-Currency'">
-        <td>{{ u.googleName }}</td>
-        <td>{{ u.currency | currency }}</td>
-      </tr>
-    </table>

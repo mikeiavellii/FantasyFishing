@@ -27,6 +27,7 @@ export class CaughtFishComponent implements OnInit {
   display: boolean = false;
   sharkB: boolean = false;
 
+
   user: SocialUser = {} as SocialUser;
 
   money: number = 1;
@@ -42,6 +43,8 @@ export class CaughtFishComponent implements OnInit {
       this.getUserData();
     });
   }
+
+  
 
   getUserData():void{
     this.userService.getUserById(this.user.id).subscribe((response:User)=> {
@@ -77,11 +80,4 @@ export class CaughtFishComponent implements OnInit {
     return sharkSet.size >= 5;
   }
 
-  // addTrophy(): void{
-  //   this.trophy = true;
-
-  //   if(this.caughtFish.includes(this.classes) ){
-  //     console.log('You the Modest Fisher Trophy for catching 1 of each class!')
-  //   }
-  // }
 }

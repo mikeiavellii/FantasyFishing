@@ -14,7 +14,7 @@
 
     <!--Insturctions-->
     <div *ngIf="showInstructions == true">
-        <div class="card text-center col-8 offset-2 ">
+        <div class="card text-center col-8 offset-2 border-0">
             <h4 class="card-header text-center">Welcome to the All Blue.</h4>
             <br>
             <p>
@@ -67,6 +67,7 @@
             (click)="addCaughtFish(AllFish[this.random].name, AllFish[this.random].img_Src_Set, AllFish[this.random].meta.scientific_Classification)">🎣📋</button>
         <button (click)="Hide()">Release</button>
     </div>
+
 
 
     <!-- <div class="circle"></div> -->

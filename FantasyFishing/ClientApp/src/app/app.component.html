@@ -1,6 +1,34 @@
 <body>
   <app-nav-menu></app-nav-menu>
   <div class="container-fluid p-0" style="height: 100%; width:100%">
+    <button (click)="openSettings=true"class="btn btn-light p-3 fixed-bottom"><img height=45px src="assets/music.png"></button>
+    <div *ngIf="openSettings == true">
+        <div class="card text-center col-8 p-0 offset-2 ">
+            <h4 class="card-header text-center">Welcome to the All Blue.</h4>
+            <br>
+            <p>Choose a song from on the one's listed below song:</p>
+            <div class="card-group-fluid text-white">
+                <button class="col-.8" (click)="playaudioSunBeam();"><img height="25px" src="assets/play.png"/><br>SunBeam</button>   |      |  
+                <button class="col-.8" (click)="pauseMusic();"><img height="25px" src="assets/play.png"/><br>Pause</button>   |      |  
+
+            </div>
+            <p class="text-center mb-1 pb-0">More songs are available for purchase in the shop. All songs made by Chris Washington.<br>Follow him on social media at any of the links below.</p>
+            <div class="card pt-0 pb-2 border-0">
+                <div class="text-center">
+                    <a href ="https://soundcloud.com/chris-washington-30"><img height="36px" src="assets/soundcloud.jpg"/></a>
+
+                    <a href ="https://music.apple.com/us/artist/lilcuz/1502809696/"><img height="36px" src="assets/apple.png"/></a>
+
+                    <a href ="https://open.spotify.com/artist/24ZVDXKbHmHHW9JiYd4RbC?si=uYFjRfnbT8u08mK2hzXy1g&nd=1"><img height="36px" src="assets/spotify.png"/></a>
+
+                    <a href ="https://www.youtube.com/channel/UC5DDdF4FXy19ZWG811AcaoQ"><img height="36px" src="assets/youtube.png"/></a>
+                </div>
+        </div>
+    </div>
+    <button class="col-2 offset-5" (click)="Hide2()">Close</button>
+</div>    
+
     <router-outlet></router-outlet>
+        <!--Open Settings-->
   </div>
 </body>

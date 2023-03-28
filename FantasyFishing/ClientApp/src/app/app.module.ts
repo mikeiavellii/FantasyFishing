@@ -13,6 +13,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FishesComponent } from './Components/fishes/fishes.component';
 import { CaughtFishComponent } from './Components/caught-fish/caught-fish.component';
 import { LeaderboardComponent } from './Components/leaderboard/leaderboard.component';
+import { ShopComponent } from './Components/shop/shop.component';
 
 
 
@@ -26,7 +27,8 @@ import { LeaderboardComponent } from './Components/leaderboard/leaderboard.compo
     FetchDataComponent,
     FishesComponent,
     CaughtFishComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

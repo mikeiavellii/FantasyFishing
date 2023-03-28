@@ -58,6 +58,9 @@ export class FishesComponent implements OnInit {
   greatRod: boolean = false;
   //cleanWaters
   cleanWaters:boolean = false;
+  //settings
+  openSettings:boolean = false;
+
 
 
   //Slider Bar
@@ -66,6 +69,7 @@ export class FishesComponent implements OnInit {
     ceil: 100,
     vertical: true,
     rightToLeft: true,
+
     translate: (value: number): string => {
       return value + ' meters';
     }
@@ -112,8 +116,8 @@ export class FishesComponent implements OnInit {
     //       break;
     //   }
     // });
-  
-  
+
+
 //Methods
   getFish(): void{
     this.fishService.getFish().subscribe((response: Fish[]) => {
@@ -237,6 +241,7 @@ export class FishesComponent implements OnInit {
     this.tryAgain = false;
     this.showInstructions = false;
     this.catchTrash = false;
+    this.openSettings = false;
   }
 
   addCaughtFish( fishNAME: string, fishIMAGE: ImgLink, fishCLASS: SciClass): void{
