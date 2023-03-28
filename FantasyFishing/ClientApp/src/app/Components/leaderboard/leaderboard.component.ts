@@ -11,7 +11,7 @@ export class LeaderboardComponent implements OnInit {
 
   constructor(private userService:UserService) { }
 
-  Users:User[] =[];
+  Users: User[] = [];
 
   ngOnInit(): void {
     this.updateLeaderboard();
@@ -19,7 +19,7 @@ export class LeaderboardComponent implements OnInit {
 
   updateLeaderboard(): void {
     this.userService.getAllUsers().subscribe((response) => {
-      this.Users = response; 
+      this.Users = response.sort((a,b) => a.currency > b.currency? - 1 : 0);
     });
   }
 }
