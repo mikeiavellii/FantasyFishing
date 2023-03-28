@@ -32,7 +32,7 @@
     </div>
 
     <!--Slider Bar-->
-    <div class="card col-2 offset-4 bg-gray">
+    <div class="card col-4 offset-3 bg-gray">
         <div class="p-2" style="height: 400px;" *ngIf="casted == false"><!--hide the slider-->
             <ngx-slider [(value)]="value" [options]="options" (userChange)="sliderChange()"></ngx-slider>
         </div>
@@ -41,21 +41,21 @@
     <button class="offset-4" (click)="getSingleFish()" *ngIf="casted == false && value != 0">Cast Line</button>
 
 
-    <div class="card col-3 offset-4" *ngIf="displayReel == true">
+    <div class="card col-6 offset-3" *ngIf="displayReel == true">
         <h3 class="text-center"><b>Looks like Something's Biting!!!</b></h3>
     </div>
 
     <!--Failure text-->
-    <div class="card col-6 offset-3 bg-gray" *ngIf="tryAgain == true">
+    <div class="card col-8 offset-2 bg-gray" *ngIf="tryAgain == true">
         <h3>Not even a nibble... Reel your line in and try again!</h3>
         <button (click)="Hide()">Reel In</button>
     </div>
 
     <!--Trash Collector-->
-    <div class="card col-6 offset-3 bg-gray" *ngIf="catchTrash == true">
+    <div class="card col-8 offset-2 bg-gray" *ngIf="catchTrash == true">
         <h3>Looks like you caught some seaweed... Better luck next time.</h3>
         <!-- <h3 *ngFor="let t of trashes">Looks like you caught some seaweed... Better luck next time.</h3> -->
-        <img src="/assets/Seaweed.jpg">
+        <img height="200px" src="/assets/Seaweed.jpg">
         <button (click)="Hide()">Reel In</button>
     </div>
 

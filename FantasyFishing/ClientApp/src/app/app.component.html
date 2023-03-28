@@ -4,12 +4,13 @@
     <button (click)="openSettings=true"class="btn btn-light p-3 fixed-bottom"><img height=45px src="assets/music.png"></button>
     <div *ngIf="openSettings == true">
         <div class="card text-center col-8 p-0 offset-2 ">
-            <h4 class="card-header text-center">Welcome to the All Blue.</h4>
+            <h4 class="card-header text-center">Settings</h4>
             <br>
             <p>Choose a song from on the one's listed below song:</p>
             <div class="card-group-fluid text-white">
-                <button class="col-.8" (click)="playaudioSunBeam();"><img height="25px" src="assets/play.png"/><br>SunBeam</button>   |      |  
-                <button class="col-.8" (click)="pauseMusic();"><img height="25px" src="assets/play.png"/><br>Pause</button>   |      |  
+                <button class="col-.8" (click)="playaudioBlueRock();"><img height="25px" src="assets/play.png"/><br>Blue Rock</button>   |      |  
+                <button class="col-.8" (click)="playaudioSunBeam();"><img height="25px" src="assets/play.png"/><br>Sun Beam</button>   |      |
+                <button class="col-.8" (click)="pauseMusic();"><img height="25px" src="assets/pause.png"/><br>Pause</button>   |      |  
 
             </div>
             <p class="text-center mb-1 pb-0">More songs are available for purchase in the shop. All songs made by Chris Washington.<br>Follow him on social media at any of the links below.</p>
@@ -23,9 +24,10 @@
 
                     <a href ="https://www.youtube.com/channel/UC5DDdF4FXy19ZWG811AcaoQ"><img height="36px" src="assets/youtube.png"/></a>
                 </div>
+                <button class="col-2 offset-5" (click)="Hide2()">Close</button>
         </div>
     </div>
-    <button class="col-2 offset-5" (click)="Hide2()">Close</button>
+
 </div>    
 
     <router-outlet></router-outlet>

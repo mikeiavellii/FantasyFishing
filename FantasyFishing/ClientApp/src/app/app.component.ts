@@ -23,10 +23,15 @@ export class AppComponent {
   audio: any = new Audio()
 
  playaudioSunBeam(){
-    this.audio.src = "https://cdn.discordapp.com/attachments/1090352770135101453/1090352905439166465/blue_rock.mp3";
+    this.audio.src = "https://cdn.discordapp.com/attachments/1090352770135101453/1090371453922316410/SUNBEAM.mp3";
     this.audio.load();
     this.audio.play();
   }    
+  playaudioBlueRock(){
+    this.audio.src = "https://cdn.discordapp.com/attachments/1090352770135101453/1090352905439166465/blue_rock.mp3";
+    this.audio.load();
+    this.audio.play();
+  }   
   
 pauseMusic(){
   this.audio.pause();
