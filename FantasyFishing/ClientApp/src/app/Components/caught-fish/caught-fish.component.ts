@@ -26,6 +26,13 @@ export class CaughtFishComponent implements OnInit {
   loggedIn: boolean = false;
   display: boolean = false;
   sharkB: boolean = false;
+  sharkP: boolean = false;
+  sharkQ: boolean = false;
+  sharkG: boolean = false;
+  catfishN: boolean = false;
+  catfishP: boolean = false;
+  catfishF: boolean = false;
+  onePiece: boolean = false;
 
   user: SocialUser = {} as SocialUser;
 
@@ -76,6 +83,69 @@ export class CaughtFishComponent implements OnInit {
   ));
     return sharkSet.size >= 5;
   }
+
+  sharkA(): boolean{
+    let sharkSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
+    cf.fishName.toLowerCase().includes('shark')
+  ));
+    return sharkSet.size >= 10;
+  }
+
+  sharkD(): boolean{
+    let sharkSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
+    cf.fishName.toLowerCase().includes('shark')
+  ));
+    return sharkSet.size >= 15;
+  }
+
+  sharkO(): boolean{
+    let sharkSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
+    cf.fishName.toLowerCase().includes('shark')
+  ));
+    return sharkSet.size >= 20;
+  }
+
+  catfishO(): boolean{
+    let catfishSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
+    cf.fishName.toLowerCase().includes('catfish')
+  ));
+    return catfishSet.size >= 5;
+  }
+
+  catfishL(): boolean{
+    let catfishSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
+    cf.fishName.toLowerCase().includes('catfish')
+  ));
+    return catfishSet.size >= 10;
+  }
+
+  catfishK(): boolean{
+    let catfishSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
+    cf.fishName.toLowerCase().includes('catfish')
+  ));
+    return catfishSet.size >= 15;
+  }
+
+  onePieceM(): boolean{
+    let onepieceSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
+    cf.fishName.toLowerCase().includes("humuhumunukunukuapua'a")
+  ));
+    return onepieceSet.size >= 1;
+  }
+
+  isCompleted(): boolean{
+    if(this.getCaughtFish.length < 500){
+      return false;
+    }
+    if(this.sharkB && this.sharkG && this.sharkQ && this.sharkP && this.catfishP && this.catfishF && this.catfishN && this.onePiece){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+
 
   // addTrophy(): void{
   //   this.trophy = true;
