@@ -25,10 +25,18 @@
     </div> -->
         <div *ngIf="display">
           <img class="img-fluid" *ngIf="sharkB" src="assets/5sharks.png" />
+          <img class="img-fluid" *ngIf="sharkP" src="assets/10sharks.png"/>
+          <img class="img-fluid" *ngIf="sharkQ" src="assets/15sharks.png"/>
+          <img class="img-fluid" *ngIf="sharkG" src="assets/20sharks.png"/>
+          <img class="img-fluid" *ngIf="catfishN" src="assets/5catfish.png"/>
+          <img class="img-fluid" *ngIf="catfishP" src="assets/10catfish.png"/>
+          <img class="img-fluid" *ngIf="catfishF" src="assets/15catfish.png"/>
+          <img class="img-fluid" *ngIf="onePieceM()" src="assets/onepiece.png"/>
+          <img class="img-fluid" *ngIf="isCompleted()" src="assets/alltrophies.png"/>
           <img class="img-fluid" *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
           <img class="img-fluid" *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
-          <img class="img-fluid" *ngIf="caughtFish.length >= 50" src="assests/50FishA.png" />
-          <img class="img-fluid" *ngIf="caughtFish.length >= 100" src="assests/100FishA.png" />
+          <img class="img-fluid" *ngIf="caughtFish.length >= 50" src="assets/50FishA.png" />
+          <img class="img-fluid" *ngIf="caughtFish.length >= 100" src="assets/100FishA.png" />
           <img class="img-fluid" *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
           <img class="img-fluid" *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
         </div>
@@ -45,7 +53,7 @@
                 <div class="card card-flip fluid bg-transparent">
                   <div class="card-front">
                     <div class="card-body">
-                      <button (click)="removeCaughtFish(f.id!, f)">x</button>
+                      <button (click)="removeCaughtFish(f.id!, f)">💰</button>
                       <i class="fa fa-search fa-5x float-right"></i>
                       <h3 class="card-title">Fish:</h3>
                       <p class="card-text">{{ f.fishName }}</p>

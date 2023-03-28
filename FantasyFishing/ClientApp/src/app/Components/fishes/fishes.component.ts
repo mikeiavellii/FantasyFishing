@@ -14,6 +14,8 @@ export class FishesComponent implements OnInit {
 
   constructor(private fishService: FishService, private authService: SocialAuthService) { }
 
+  
+
   //Arrays
   AllFish: Fish[] = [];
   numbers: number[] = [
