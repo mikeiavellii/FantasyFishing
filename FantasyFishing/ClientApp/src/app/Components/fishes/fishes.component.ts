@@ -17,13 +17,21 @@ export class FishesComponent implements OnInit {
   //Arrays
   AllFish: Fish[] = [];
   numbers: number[] = [
-    5,6,7
+    1,2,3,4,5,6,7
+  ]
+  trashType: number[] = [
+    1,2,3
   ]
   classes: string[] = [
     'actinopterygii',
     'chondrichthyes',
     'hyperoartia',
     'myxini'
+  ]
+  trashes: string[] = [
+    'old shoe',
+    'tin can',
+    'sewaeed'
   ]
 
   //Numbers
@@ -40,6 +48,17 @@ export class FishesComponent implements OnInit {
   showInstructions: boolean = false;
   hideInstructions: boolean = false;
   hideBackground: boolean = false;
+  catchTrash: boolean = false;
+  //Reel Buffs
+  bronzeReel: boolean = false;
+  silverReel: boolean = false;
+  goldenReel: boolean = false;
+  //Rod Buffs
+  goodRod: boolean = false;
+  greatRod: boolean = false;
+  //cleanWaters
+  cleanWaters:boolean = false;
+
 
   //Slider Bar
   options: Options = {
@@ -68,8 +87,33 @@ export class FishesComponent implements OnInit {
   sliderChange():void{
     // console.log(this.value);
   }
-
-
+    // let circle = document.querySelector('.circle') as HTMLElement;
+    // const moveBy = 10;
+  
+    // window.addEventListener('load', () => {
+    //   circle.style.position = 'absolute';
+    //   circle.style.left = '0';
+    //   circle.style.top = '0';
+    // });
+  
+    // window.addEventListener('keyup', (e: KeyboardEvent) => {
+    //   switch (e.key) {
+    //     case 'ArrowLeft':
+    //       circle.style.left = `${parseInt(circle.style.left) - moveBy}px`;
+    //       break;
+    //     case 'ArrowRight':
+    //       circle.style.left = `${parseInt(circle.style.left) + moveBy}px`;
+    //       break;
+    //     case 'ArrowUp':
+    //       circle.style.top = `${parseInt(circle.style.top) - moveBy}px`;
+    //       break;
+    //     case 'ArrowDown':
+    //       circle.style.top = `${parseInt(circle.style.top) + moveBy}px`;
+    //       break;
+    //   }
+    // });
+  
+  
 //Methods
   getFish(): void{
     this.fishService.getFish().subscribe((response: Fish[]) => {
@@ -95,10 +139,54 @@ export class FishesComponent implements OnInit {
       this.canCatchFish = true;
     }
     else if(pickNumber == 3){
+      this.canCatchFish = true;
+    }
+    else if(pickNumber == 4){
       this.tryAgain = true;
     }
+    else if(pickNumber == 5){
+      if(this.goodRod == false){
+      this.tryAgain = true;
+      }
+      else{
+      this.canCatchFish = true;
+      }
+    }
+    else if(pickNumber == 6){
+      if(this.greatRod == false){
+        this.tryAgain = true;
+      }
+      else{
+      this.canCatchFish = true;
+      }
+    }
+    else if(pickNumber == 7){
+       setTimeout(()=>{
+        if(this.cleanWaters==false){
+          this.catchTrash = true;
+        }
+        else{
+          this.canCatchFish = true;
+        }
+    },5000);
+    }
+    //Pick Trash
+    // let trashChoice: string = "";
+    // if(this.catchTrash == true) {
+    // let choiceNumber:number = Math.floor((Math.random() * this.trashType.length)) + 1;
+    // console.log(pickNumber)
+    //   if(choiceNumber == 1) {
+    //     trashChoice = this.trashes[0];
+    //   }
+    //   else if(pickNumber == 2){
+    //     trashChoice = this.trashes[1];
+    //   }
+    //   else if(pickNumber == 3){
+    //     trashChoice = this.trashes[2];
+    //   }
+    // }
 
-  //Class by Depth
+    //Class by Depth
     let classChoice: string = "";
     if(this.canCatchFish == true) {
       if(this.value >= 1 && this.value <= 25){
@@ -129,7 +217,9 @@ export class FishesComponent implements OnInit {
       //booleans post cast
       this.displayReel = false;
       this.displayRandom = true;
-      },5000);
+      },this.bronzeReel?3000:5000,
+      this.silverReel?2000:5000,
+      this.goldenReel?1000:5000);
     }
   }
   
@@ -146,6 +236,7 @@ export class FishesComponent implements OnInit {
     this.casted = false;
     this.tryAgain = false;
     this.showInstructions = false;
+    this.catchTrash = false;
   }
 
   addCaughtFish( fishNAME: string, fishIMAGE: ImgLink, fishCLASS: SciClass): void{

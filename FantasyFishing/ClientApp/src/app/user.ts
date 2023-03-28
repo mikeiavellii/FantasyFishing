@@ -5,7 +5,7 @@ export interface User {
     userName: string;
     googleName:string;
     currency: number;
-    betteRod: boolean;
+    betterRod: boolean;
     cleanWaters: boolean;
     fasterReel: boolean;
     userLevel: number;

@@ -22,7 +22,7 @@
                 Adjust your depth using the meter on the left and click the cast button when you're ready to fish.<br>
                 Sometimes the fish just aren't biting, but if you do catch something, you can either keep it and add it
                 to your profile or release it.<br>
-                Your caught list can be viewed over on your user profile. I will also display the trophies you've earned
+                Your caught list can be viewed over on your user profile. It will also display the trophies you've earned
                 and a few other things so keep fishing the All Blue and don't forget to check your profile often to see
                 if you've earned anything new.
             </p>
@@ -45,11 +45,17 @@
         <h3 class="text-center"><b>Looks like Something's Biting!!!</b></h3>
     </div>
 
-
-
-    <!--Cast Line button and flavor text-->
+    <!--Failure text-->
     <div class="card col-6 offset-3 bg-gray" *ngIf="tryAgain == true">
         <h3>Not even a nibble... Reel your line in and try again!</h3>
+        <button (click)="Hide()">Reel In</button>
+    </div>
+
+    <!--Trash Collector-->
+    <div class="card col-6 offset-3 bg-gray" *ngIf="catchTrash == true">
+        <h3>Looks like you caught some seaweed... Better luck next time.</h3>
+        <!-- <h3 *ngFor="let t of trashes">Looks like you caught some seaweed... Better luck next time.</h3> -->
+        <img src="/assets/Seaweed.jpg">
         <button (click)="Hide()">Reel In</button>
     </div>
 
@@ -62,6 +68,8 @@
         <button (click)="Hide()">Release</button>
     </div>
 
+
+    <!-- <div class="circle"></div> -->
     <!--ACHIEVEMENT Badge-->
     <!-- <div class="fixed-bottom align-itmes-end">
         <div class=" b-0 offset-3 p-2">
