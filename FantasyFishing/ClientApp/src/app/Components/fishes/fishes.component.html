@@ -7,29 +7,6 @@
 	</video>
     <button (click)="hideBackground = true">Hide BG</button> -->
 
-    <!--Hide Insturctions-->
-    <div *ngIf="showInstructions == false && hideInstructions == false">
-        <button (click)="GetInstuctions()">Instructions</button>
-    </div>
-
-    <!--Insturctions-->
-    <div *ngIf="showInstructions == true">
-        <div class="card text-center col-8 offset-2 border-0">
-            <h4 class="card-header text-center">Welcome to the All Blue.</h4>
-            <br>
-            <p>
-                Here any and all fish can be caught.<br>
-                Adjust your depth using the meter on the left and click the cast button when you're ready to fish.<br>
-                Sometimes the fish just aren't biting, but if you do catch something, you can either keep it and add it
-                to your profile, sell it, or release it.<br>
-                Your caught list can be viewed over on your user profile. It will also display the trophies you've earned
-                and a few other things so keep fishing in the All Blue and don't forget to check your profile often to see
-                if you've earned anything new.
-            </p>
-            <p>Happy Fishing!</p>
-            <button class="col-2 offset-5" (click)="Hide()">Close</button>
-        </div>
-    </div>
 
     <!--Slider Bar-->
     <div class="card col-4 offset-3 bg-gray">
@@ -59,8 +36,16 @@
         <button (click)="Hide()">Reel In</button>
     </div>
 
+    <!--Catch Nemo-->
+    <div class="card col-8 offset-2 bg-gray imgSize" *ngIf="catchNemo == true">
+        <h3>Looks like you caught Nemo... Throw him back, he's gotta find his dad.</h3>
+        <!-- <h3 *ngFor="let t of trashes">Looks like you caught some seaweed... Better luck next time.</h3> -->
+        <img  height="200px" width="auto"src="/assets/nemo.jpg">
+        <button (click)="Hide()">Reel In</button>
+    </div>
+
     <!--Cast Line button and flavor text-->
-    <div class="card col-6 offset-3 bg-gray" *ngIf="displayRandom == true">
+    <div class="card col-4 offset-4 bg-gray" *ngIf="displayRandom == true">
         <p class="card-header">{{ AllFish[this.random].name }}</p>
         <img src="{{ AllFish[this.random].img_Src_Set.link1}}">
         <button

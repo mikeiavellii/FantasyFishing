@@ -19,7 +19,7 @@ export class FishesComponent implements OnInit {
   //Arrays
   AllFish: Fish[] = [];
   numbers: number[] = [
-    1,2,3,4,5,6,7
+    1,2,3,4,5,6,7,8
   ]
   trashType: number[] = [
     1,2,3
@@ -51,6 +51,7 @@ export class FishesComponent implements OnInit {
   hideInstructions: boolean = false;
   hideBackground: boolean = false;
   catchTrash: boolean = false;
+  catchNemo: boolean = false;
   //Reel Buffs
   bronzeReel: boolean = false;
   silverReel: boolean = false;
@@ -63,8 +64,6 @@ export class FishesComponent implements OnInit {
   //settings
   openSettings:boolean = false;
 
-
-
   //Slider Bar
   options: Options = {
     floor: 0,
@@ -74,8 +73,21 @@ export class FishesComponent implements OnInit {
 
     translate: (value: number): string => {
       return value + ' meters';
-    }
-  };
+    },
+    showSelectionBar: true,
+    getSelectionBarColor: (value: number): string => {
+      if (value > 75) {
+          return 'red';
+      }
+      if (value > 50 && value <=75) {
+          return 'orange';
+      }
+      if (value > 25 && value <=50) {
+          return 'yellow';
+      }
+      return '#2AE02A';
+  }
+}
   
   //Google
   user: SocialUser = {} as SocialUser;
@@ -174,8 +186,18 @@ export class FishesComponent implements OnInit {
         else{
           this.canCatchFish = true;
         }
-    },5000);
+    },1000);
     }
+    else if(pickNumber == 8){
+      setTimeout(()=>{
+       if(this.cleanWaters==false){
+         this.catchNemo = true;
+       }
+       else{
+         this.canCatchFish = true;
+       }
+   },1000);
+   }
     //Pick Trash
     // let trashChoice: string = "";
     // if(this.catchTrash == true) {
@@ -243,6 +265,7 @@ export class FishesComponent implements OnInit {
     this.tryAgain = false;
     this.showInstructions = false;
     this.catchTrash = false;
+    this.catchNemo = false;
     this.openSettings = false;
   }
 

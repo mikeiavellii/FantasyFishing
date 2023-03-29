@@ -38,7 +38,7 @@
           <img class="img-fluid" *ngIf="caughtFish.length >= 50" src="assets/50FishA.png" />
           <img class="img-fluid" *ngIf="caughtFish.length >= 100" src="assets/100FishA.png" />
           <img class="img-fluid" *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
-          <img class="img-fluid" *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
+          <img class="img-fluid" *ngIf="this.A500Fish == true" src="assets/500FishA.png" />
         </div>
     <app-leaderboard></app-leaderboard>
       </div>

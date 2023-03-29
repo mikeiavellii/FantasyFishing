@@ -33,7 +33,10 @@ export class CaughtFishComponent implements OnInit {
   catfishP: boolean = false;
   catfishF: boolean = false;
   onePiece: boolean = false;
-
+  A5Fish: boolean = false
+  A25Fish: boolean = false
+  A200Fish: boolean = false
+  A500Fish: boolean = false
 
   user: SocialUser = {} as SocialUser;
 
@@ -84,6 +87,7 @@ export class CaughtFishComponent implements OnInit {
     let sharkSet: Set<CaughtFish> = new Set (this.caughtFish.filter((cf:CaughtFish) => 
     cf.fishName.toLowerCase().includes('shark')
   ));
+  this.A500Fish = true
     return sharkSet.size >= 5;
   }
 
@@ -113,6 +117,7 @@ export class CaughtFishComponent implements OnInit {
     cf.fishName.toLowerCase().includes('catfish')
   ));
     return catfishSet.size >= 5;
+
   }
 
   catfishL(): boolean{
