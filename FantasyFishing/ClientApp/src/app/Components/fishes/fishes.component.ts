@@ -4,17 +4,17 @@ import { Component, OnInit } from '@angular/core';
 import { CaughtFish } from 'src/app/Models/caught-fish';
 import { Fish, ImgLink, SciClass } from 'src/app/Models/fish';
 import { FishService } from 'src/app/Services/fish.service';
+import { UserService } from 'src/app/Services/user.service';
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'app-fishes',
   templateUrl: './fishes.component.html',
-  styleUrls: ['./fishes.component.css']
+  styleUrls: ['./fishes.component.css','./fishes.component.scss']
 })
 export class FishesComponent implements OnInit {
 
-  constructor(private fishService: FishService, private authService: SocialAuthService) { }
-
-  
+  constructor(private fishService: FishService, private authService: SocialAuthService, private userService: UserService) { }
 
   //Arrays
   AllFish: Fish[] = [];
@@ -52,17 +52,18 @@ export class FishesComponent implements OnInit {
   hideBackground: boolean = false;
   catchTrash: boolean = false;
   catchNemo: boolean = false;
-  //Reel Buffs
-  bronzeReel: boolean = false;
-  silverReel: boolean = false;
-  goldenReel: boolean = false;
+
   //Rod Buffs
-  goodRod: boolean = false;
-  greatRod: boolean = false;
+  betterRod: boolean = false;
   //cleanWaters
-  cleanWaters:boolean = false;
+  cleanWaters: boolean = false;
+  //Reel Buffs
+  fasterReel: boolean = false;
+
   //settings
-  openSettings:boolean = false;
+  openSettings: boolean = false;
+
+  UserData: User = {} as User;
 
   //Slider Bar
   options: Options = {
@@ -75,6 +76,7 @@ export class FishesComponent implements OnInit {
       return value + ' meters';
     },
     showSelectionBar: true,
+    
     getSelectionBarColor: (value: number): string => {
       if (value > 75) {
           return 'red';
@@ -99,7 +101,18 @@ export class FishesComponent implements OnInit {
       console.log(user);
       this.loggedIn = (user != null);
       this.getFish();
+      this.getUserData();
     });
+  }
+
+  getUserData():void{
+    this.userService.getUserById(this.user.id).subscribe((response:User)=> {
+      this.UserData = response;
+      console.log(this.UserData);
+      this.betterRod = this.UserData.betterRod;
+      this.cleanWaters = this.UserData.cleanWaters;
+      this.fasterReel = this.UserData.fasterReel;
+    })
   }
 
   sliderChange():void{
@@ -132,7 +145,7 @@ export class FishesComponent implements OnInit {
     // });
 
 
-//Methods
+  //Methods
   getFish(): void{
     this.fishService.getFish().subscribe((response: Fish[]) => {
       console.log(response);
@@ -163,7 +176,7 @@ export class FishesComponent implements OnInit {
       this.tryAgain = true;
     }
     else if(pickNumber == 5){
-      if(this.goodRod == false){
+      if(this.betterRod == false){
       this.tryAgain = true;
       }
       else{
@@ -171,7 +184,7 @@ export class FishesComponent implements OnInit {
       }
     }
     else if(pickNumber == 6){
-      if(this.greatRod == false){
+      if(this.betterRod == false){
         this.tryAgain = true;
       }
       else{
@@ -179,14 +192,13 @@ export class FishesComponent implements OnInit {
       }
     }
     else if(pickNumber == 7){
-       setTimeout(()=>{
-        if(this.cleanWaters==false){
-          this.catchTrash = true;
+        if(this.cleanWaters == false){
+          setTimeout(() => {this.catchTrash = true}, 1000);
         }
         else{
           this.canCatchFish = true;
         }
-    },1000);
+    
     }
     else if(pickNumber == 8){
       setTimeout(()=>{
@@ -245,10 +257,8 @@ export class FishesComponent implements OnInit {
       //booleans post cast
       this.displayReel = false;
       this.displayRandom = true;
-      },this.bronzeReel?3000:5000,
-      this.silverReel?2000:5000,
-      this.goldenReel?1000:5000);
-    }
+      },this.fasterReel?1500:5000,
+    )};
   }
   
   GetInstuctions(): void{

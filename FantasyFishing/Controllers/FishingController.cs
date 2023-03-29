@@ -98,11 +98,11 @@ namespace FantasyFishing.Controllers
         {
             return dbcontext.UserInfos.ToList();
         }
+
         [HttpGet("UserById")]
         public UserInfo UserById(string id)
         {
             UserInfo u = dbcontext.UserInfos.FirstOrDefault(u => u.UserName == id);
-              
             return u;
         }
 
@@ -112,7 +112,38 @@ namespace FantasyFishing.Controllers
             CaughtFish c = dbcontext.CaughtFishes.FirstOrDefault(c => c.Id == id);
             UserInfo u = dbcontext.UserInfos.FirstOrDefault(u => u.UserName == c.UserId);
             u.Currency += c.FishName.Length;
+            u.UserLevel = Math.Floor((double)(u.Currency / 1000));
             dbcontext.CaughtFishes.Remove(c);
+            dbcontext.UserInfos.Update(u);
+            dbcontext.SaveChanges();
+        }
+
+        [HttpPut("BuyBetterRod")]
+        public void BuyBetterRod(string userId)
+        {
+            UserInfo u = dbcontext.UserInfos.FirstOrDefault(u => u.UserName == userId);
+            u.Currency -= 200;
+            u.BetterRod = true;
+            dbcontext.UserInfos.Update(u);
+            dbcontext.SaveChanges();
+        }
+
+        [HttpPut("BuyCleanWaters")]
+        public void BuyCleanWaters(string userId)
+        {
+            UserInfo u = dbcontext.UserInfos.FirstOrDefault(u => u.UserName == userId);
+            u.Currency -= 200;
+            u.CleanWaters = true;
+            dbcontext.UserInfos.Update(u);
+            dbcontext.SaveChanges();
+        }
+
+        [HttpPut("BuyFasterReel")]
+        public void BuyFasterReel(string userId)
+        {
+            UserInfo u = dbcontext.UserInfos.FirstOrDefault(u => u.UserName == userId);
+            u.Currency -= 200;
+            u.FasterReel = true;
             dbcontext.UserInfos.Update(u);
             dbcontext.SaveChanges();
         }

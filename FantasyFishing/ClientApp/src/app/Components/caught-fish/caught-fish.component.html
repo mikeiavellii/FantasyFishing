@@ -3,70 +3,92 @@
     <!--User Info columm-->
     <div class="row">
       <div class="col col-12 col-lg-4 col-sm-6">
-        <div class="card seal text-left">
+        <div class="card seal seal2 text-left">
           <h3 class="card-header text-center p-0">Fishing License</h3>
-          <div style="color: blue;" class="pt-0">
+          <div class="p-2">
             <p><img src="{{ user.photoUrl }}" /></p>
             <p>Name: {{ UserData.googleName }}</p>
             <p>License NO: xx-{{ user.id }}-xx</p>
-            <p>Level: {{ UserData.userLevel }}</p>
+            <!-- <p>Level: {{ UserData.userLevel }}</p> -->
             <p>Expiration Date: 12/31/2023</p>
             <p>Wallet: {{ UserData.currency | currency }} </p>
           </div>
         </div>
+      </div>
 
-        <!--Show Trophies-->
-        <button (click)="toggleDisplay()">Trophies</button>
-        <!-- <div *ngIf="display">
-        <img *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
-        <img *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
-        <img *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
-        <img *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
-    </div> -->
-        <div *ngIf="display">
-          <img class="img-fluid" *ngIf="sharkB" src="assets/5sharks.png" />
-          <img class="img-fluid" *ngIf="sharkP" src="assets/10sharks.png"/>
-          <img class="img-fluid" *ngIf="sharkQ" src="assets/15sharks.png"/>
-          <img class="img-fluid" *ngIf="sharkG" src="assets/20sharks.png"/>
-          <img class="img-fluid" *ngIf="catfishN" src="assets/5catfish.png"/>
-          <img class="img-fluid" *ngIf="catfishP" src="assets/10catfish.png"/>
-          <img class="img-fluid" *ngIf="catfishF" src="assets/15catfish.png"/>
-          <img class="img-fluid" *ngIf="onePieceM()" src="assets/onepiece.png"/>
-          <img class="img-fluid" *ngIf="isCompleted()" src="assets/alltrophies.png"/>
-          <img class="img-fluid" *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
-          <img class="img-fluid" *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
-          <img class="img-fluid" *ngIf="caughtFish.length >= 50" src="assets/50FishA.png" />
-          <img class="img-fluid" *ngIf="caughtFish.length >= 100" src="assets/100FishA.png" />
-          <img class="img-fluid" *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
-          <img class="img-fluid" *ngIf="this.A500Fish == true" src="assets/500FishA.png" />
+      <!--Show Shop-->
+      <div class="row m-1">
+        <button class="col-4 col-md-2 " (click)="toggleShop()">Shop</button>
+        <div class="col-12 col-md-5 p-1 " *ngIf="displayS">
+          <div *ngIf="UserData.currency < 200" class="card">
+            <p>Insufficent funds. Go out and fish more to purchase these upgrades.</p>
+            <ul>
+              <li>Better Rod: $200</li>
+              <li>Clean Waters: $200</li>
+              <li>Faster Reel: $200</li>
+            </ul>
+          </div>
+          <div *ngIf="UserData.currency >= 200">
+            <button (click)="buyBetterRod()" [disabled]="UserData.betterRod == true || UserData.currency < 200">Better Rod: $200</button>
+            <button (click)="buyCleanWaters()" [disabled]="UserData.cleanWaters == true || UserData.currency < 200">Clean Waters: $200</button>
+            <button (click)="buyFasterReel()" [disabled]="UserData.fasterReel == true || UserData.currency < 200">Faster Reel: $200</button>
+          </div>
         </div>
-    <app-leaderboard></app-leaderboard>
+      </div>
+
+      <!--Show Trophies-->
+      <div class="row m-1">
+        <button class="col-4 col-md-2" (click)="toggleTrophy()">Trophies</button>
+      </div>
+      <div *ngIf="displayT">
+        <img class="img-fluid" *ngIf="sharkS()" src="assets/5sharks.png" />
+        <img class="img-fluid" *ngIf="sharkA()" src="assets/10sharks.png" />
+        <img class="img-fluid" *ngIf="sharkD()" src="assets/15sharks.png" />
+        <img class="img-fluid" *ngIf="sharkO()" src="assets/20sharks.png" />
+        <img class="img-fluid" *ngIf="catfishO()" src="assets/5catfish.png" />
+        <img class="img-fluid" *ngIf="catfishL()" src="assets/10catfish.png" />
+        <img class="img-fluid" *ngIf="catfishK()" src="assets/15catfish.png" />
+        <img class="img-fluid" *ngIf="onePieceM()" src="assets/onepiece.png" />
+        <img class="img-fluid" *ngIf="isCompleted()" src="assets/alltrophies.png" />
+        <img class="img-fluid" *ngIf="caughtFish.length >= 5" src="assets/5FishA.png" />
+        <img class="img-fluid" *ngIf="caughtFish.length >= 25" src="assets/25FishA.png" />
+        <img class="img-fluid" *ngIf="caughtFish.length >= 50" src="assets/50FishA.png" />
+        <img class="img-fluid" *ngIf="caughtFish.length >= 100" src="assets/100FishA.png" />
+        <img class="img-fluid" *ngIf="caughtFish.length >= 200" src="assets/200FishA.png" />
+        <img class="img-fluid" *ngIf="caughtFish.length >= 500" src="assets/500FishA.png" />
+      </div>
+
+      <!--Show Leaderboard-->
+      <div class="row m-1">
+        <button class="col-4 col-md-2" (click)="toggleLeaderboard()">Leaderboard</button>
+      </div>
+      <div class="col-12 col-md-6" *ngIf="displayL">
+        <app-leaderboard></app-leaderboard>
       </div>
     </div>
 
-      <div class="col col-12">
-        <!--Caught list Column-->
-        <div class="container">
-          <div class="row">
-            <div *ngFor="let f of caughtFish; index as i" class="col-sm-4 mb-4">
-              <div>
-                <div class="card card-flip fluid bg-transparent">
-                  <div class="card-front">
-                    <div class="card-body">
-                      <button (click)="removeCaughtFish(f.id!, f)">💰</button>
-                      <i class="fa fa-search fa-5x float-right"></i>
-                      <h3 class="card-title">Fish:</h3>
-                      <p class="card-text">{{ f.fishName }}</p>
-                      <img class="img img-fluid" src="{{ f.fishImage }}" />
-                    </div>
+    <div class="col col-12">
+      <!--Caught list Column-->
+      <div class="container">
+        <div class="row">
+          <div *ngFor="let f of caughtFish; index as i" class="col-sm-4 mb-4">
+            <div>
+              <div class="card card-flip fluid bg-transparent">
+                <div class="card-front">
+                  <div class="card-body">
+                    <button (click)="removeCaughtFish(f.id!, f)">💰</button>
+                    <i class="fa fa-search fa-5x float-right"></i>
+                    <h3 class="card-title">Fish:</h3>
+                    <p class="card-text">{{ f.fishName }}</p>
+                    <img class="img img-fluid" src="{{ f.fishImage }}" />
                   </div>
-                  <div class="card-back bg-white">
-                    <div class="card-body">
-                      <h3 class="card-title">Info:</h3>
-                      <p class="card-text">Class: {{ f.fishClass }}</p>
-                      <p class="card-text">Order: {{ f.fishOrder }}</p>
-                      <p class="card-text">Family: {{ f.fishFamily }}</p>
-                    </div>
+                </div>
+                <div class="card-back bg-white">
+                  <div class="card-body">
+                    <h3 class="card-title">Info:</h3>
+                    <p class="card-text">Class: {{ f.fishClass }}</p>
+                    <p class="card-text">Order: {{ f.fishOrder }}</p>
+                    <p class="card-text">Family: {{ f.fishFamily }}</p>
                   </div>
                 </div>
               </div>
@@ -76,5 +98,4 @@
       </div>
     </div>
   </div>
-
-
+</div>

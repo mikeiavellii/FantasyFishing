@@ -1,0 +1,30 @@
+::ng-deep {
+
+
+
+    .custom-slider .ngx-slider .ngx-slider-pointer {
+      width: 20;
+      height: 40px;
+      top: auto; /* to remove the default positioning */
+      bottom: 0;
+      background-image: url("../../../assets/fish_bobber.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: transparent;
+      color: black;
+    }
+    
+      .custom-slider .ngx-slider .ngx-slider-pointer:after {
+        display: none;
+      }
+     .custom-slider .ngx-slider .ngx-slider-bubble{
+        color:black;
+     }
+     .custom-slider .ngx-slider .ngx-slider-bubble .ngx-slider-ceil{
+        color:black;
+     }
+     .custom-slider .ngx-slider .ngx-slider-bubble .ngx-slider-floor{
+        color:black;
+     }
+    
+    }
