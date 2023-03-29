@@ -76,7 +76,7 @@
               <div class="card card-flip fluid bg-transparent">
                 <div class="card-front">
                   <div class="card-body">
-                    <button (click)="removeCaughtFish(f.id!, f)">💰</button>
+                    <button (click)="removeCaughtFish(f.id!, f)">💰 {{ f.fishName.length | currency}}</button>
                     <i class="fa fa-search fa-5x float-right"></i>
                     <h3 class="card-title">Fish:</h3>
                     <p class="card-text">{{ f.fishName }}</p>
