@@ -23,6 +23,11 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  .imgSize{
+    max-height: 180px;
+  }
+  
   /* .circle{
     height:100px;
     width:100px;

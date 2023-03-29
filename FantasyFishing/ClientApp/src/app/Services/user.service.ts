@@ -21,8 +21,19 @@ export class UserService {
     return this.http.post<User> (`${this.baseUrl}${this.url}/AddUser?username=${username}&googlename=${googlename}`,{})
   }
   
-  getAllUsers():Observable <User[]>{
+  getAllUsers(): Observable <User[]>{
     return this.http.get<User[]>(`${this.baseUrl}${this.url}/AllUsers`)
   }
+
+  buyBetterRod(userId: string): Observable <User>{
+    return this.http.put<User>(`${this.baseUrl}${this.url}/BuyBetterRod?userId=${userId}`, {})
+  }
   
+  buyCleanWaters(userId: string): Observable <User>{
+    return this.http.put<User>(`${this.baseUrl}${this.url}/BuyCleanWaters?userId=${userId}`, {})
+  }
+
+  buyFasterReel(userId: string): Observable <User>{
+    return this.http.put<User>(`${this.baseUrl}${this.url}/BuyFasterReel?userId=${userId}`, {})
+  }
 }

@@ -24,7 +24,11 @@ export class CaughtFishComponent implements OnInit {
   caughtFish: CaughtFish[] = [];
 
   loggedIn: boolean = false;
-  display: boolean = false;
+
+  displayT: boolean = false;
+  displayL: boolean = false;
+  displayS: boolean = false;
+
   sharkB: boolean = false;
   sharkP: boolean = false;
   sharkQ: boolean = false;
@@ -51,16 +55,21 @@ export class CaughtFishComponent implements OnInit {
     });
   }
 
-  
-
   getUserData():void{
     this.userService.getUserById(this.user.id).subscribe((response:User)=> {
       this.UserData = response;
       console.log(this.UserData);
     })
   }
-  toggleDisplay(){
-    this.display = !this.display;
+
+  toggleTrophy(){
+    this.displayT = !this.displayT;
+  }
+  toggleLeaderboard(){
+    this.displayL = !this.displayL;
+  }
+  toggleShop(){
+    this.displayS = !this.displayS;
   }
 
   getCaughtFish(): void{
@@ -148,13 +157,22 @@ export class CaughtFishComponent implements OnInit {
     }
   }
 
-
-
-  // addTrophy(): void{
-  //   this.trophy = true;
-
-  //   if(this.caughtFish.includes(this.classes) ){
-  //     console.log('You the Modest Fisher Trophy for catching 1 of each class!')
-  //   }
-  // }
+  buyBetterRod(){
+    if(this.UserData.currency >= 200){
+      this.UserData.betterRod = true;
+      this.userService.buyBetterRod(this.UserData.userName).subscribe((response: any) => {});
+    }
+  }
+  buyCleanWaters(){
+    if(this.UserData.currency >= 200){
+      this.UserData.cleanWaters = true;
+      this.userService.buyCleanWaters(this.UserData.userName).subscribe((response: any) => {});
+    }
+  }
+  buyFasterReel(){
+    if(this.UserData.currency >= 200){
+      this.UserData.fasterReel = true;
+      this.userService.buyFasterReel(this.UserData.userName).subscribe((response: any) => {});
+    }
+  }
 }
