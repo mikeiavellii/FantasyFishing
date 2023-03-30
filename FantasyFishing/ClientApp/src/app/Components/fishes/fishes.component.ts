@@ -30,6 +30,14 @@ export class FishesComponent implements OnInit {
     'hyperoartia',
     'myxini'
   ]
+  orders: string [] = [
+    "siluriformes", "esociformes", "scombriformes", "clupeiformes", "beryciformes", "scorpaeniformes", "lepisosteiformes", "perciformes", "squatiniformesf._de_buen", "cichliformes", "acanthuriformes", 
+    "cypriniformes", "lophiiformes", "lophiiformesgarman", "gadiformes", "osteoglossiformes", "anguilliformes", "salmoniformes", "carcharhiniformes", "beloniformes", "atheriniformes", "osmeriformes", 
+    "dipnoi", "labriformes", "orectolobiformes", "cyprinodontiformes", "stomiiformes", "istiophoriformes", "aulopiformes", "argentiniformes", "lamniformes", "polymixiiformes", "myliobatiformes", 
+    "gonorynchiformes", "acipenseriformes", "anabantiformes", "polypteriformesbleeker", "myctophiformes", "characiformes", "scombrolabraciformes", "trachiniformes", "tetraodontiformes", 
+    "blenniiformesbleeker", "gobiiformes", "albuliformes", "amiiformes", "squaliformes", "pleuronectiformes", "gymnotiformes", "petromyzontiformes", "gasterosteiformes", "heterodontiformesl._s._berg", 
+    "carangiformes", "kurtiformes", "orectolobiformesapplegate", "siluriformesg._cuvier", "chimaeriformesobruchev", "gobiesociformes", "actinistiacope", "blenniiformes"
+  ]
   trashes: string[] = [
     'old shoe',
     'tin can',
@@ -229,26 +237,52 @@ export class FishesComponent implements OnInit {
     //Class by Depth
     let classChoice: string = "";
     if(this.canCatchFish == true) {
-      if(this.value >= 1 && this.value <= 25){
-        classChoice = this.classes[0];
+      if(this.value >= 1 && this.value <= 10){
+        classChoice = this.orders[0]+this.orders[1] + this.orders[2]+this.orders[3]+this.orders[4]+this.orders[5];
       }
-      else if(this.value >= 26 && this.value <= 50){
-        classChoice = this.classes[1];
+      else if(this.value >= 11 && this.value <= 20){
+        classChoice = this.orders[6]+this.orders[7]+this.orders[8]+this.orders[9]+this.orders[10]+this.orders[11];
       }
-      else if(this.value >= 51 && this.value <= 75){
-        classChoice = this.classes[2];
+      else if(this.value >= 21 && this.value <= 30){
+        classChoice = this.orders[12]+this.orders[13]+this.orders[14]+this.orders[15]+this.orders[16]+this.orders[17];
       }
-      else if(this.value >= 76 && this.value <= 100){
-        classChoice = this.classes[3];
+      else if(this.value >= 31 && this.value <= 40){
+        classChoice = this.orders[18]+this.orders[19]+this.orders[20]+this.orders[21]+this.orders[22]+this.orders[23];
+      }
+      else if(this.value >= 41 && this.value <= 50){
+        classChoice = this.orders[24]+this.orders[25]+this.orders[26]+this.orders[27]+this.orders[28]+this.orders[29];
+      }
+      else if(this.value >= 51 && this.value <= 60){
+        classChoice = this.orders[30]+this.orders[31]+this.orders[32]+this.orders[33]+this.orders[34]+this.orders[35];
+      }
+      else if(this.value >= 61 && this.value <= 70){
+        classChoice = this.orders[36]+this.orders[37]+this.orders[38]+this.orders[39]+this.orders[40]+this.orders[41];
+      }
+      else if(this.value >= 71 && this.value <= 80){
+        classChoice = this.orders[42]+this.orders[43]+this.orders[44]+this.orders[45]+this.orders[46]+this.orders[47];
+      }
+      else if(this.value >= 81 && this.value <= 90){
+        classChoice = this.orders[48]+this.orders[49]+this.orders[50]+this.orders[51]+this.orders[52]+this.orders[53];
+      }
+      else if(this.value >= 91 && this.value <= 100){
+        classChoice = this.orders[54]+this.orders[55]+this.orders[56]+this.orders[57]+this.orders[58]+this.orders[59];
       }
       console.log(classChoice);
 
     //Sort by depth
-      let filtered: Fish[] = this.AllFish.filter(f => f.meta.scientific_Classification.class == classChoice);
-      this.random = Math.floor(Math.random() * filtered.length)
-      console.log(this.random, filtered[this.random]);
+      let filtered: Fish[] = this.AllFish.filter(f =>{ 
+        if(f.meta.scientific_Classification.order != null){
+          return classChoice.toLowerCase().includes(f.meta.scientific_Classification.order.toLowerCase())
+        }
+        else {
+          return false;
+        }
+      });
+      console.log(filtered);
+      let result =  filtered[Math.floor(Math.random()*filtered.length)];
+      console.log(result);
       //finding in main array
-      this.random = this.AllFish.findIndex(f => f.id == filtered[this.random].id)
+      this.random = this.AllFish.findIndex(f => f.id == result.id)
       
       //booleans pre cast
       this.displayReel = true;

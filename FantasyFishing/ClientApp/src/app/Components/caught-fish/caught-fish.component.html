@@ -20,7 +20,7 @@
       <div class="row m-1">
         <button class="col-4 col-md-2 " (click)="toggleShop()">Shop</button>
         <div class="col-12 col-md-5 p-1 " *ngIf="displayS">
-          <div *ngIf="UserData.currency < 200" class="card">
+          <div *ngIf="UserData.currency <600" class="card">
             <p>Insufficent funds. Go out and fish more to purchase these upgrades.</p>
             <ul>
               <li>Better Rod: $200</li>
@@ -28,7 +28,7 @@
               <li>Faster Reel: $200</li>
             </ul>
           </div>
-          <div *ngIf="UserData.currency >= 200">
+          <div *ngIf="UserData.currency >= 600">
             <button (click)="buyBetterRod()" [disabled]="UserData.betterRod == true || UserData.currency < 200">Better Rod: $200</button>
             <button (click)="buyCleanWaters()" [disabled]="UserData.cleanWaters == true || UserData.currency < 200">Clean Waters: $200</button>
             <button (click)="buyFasterReel()" [disabled]="UserData.fasterReel == true || UserData.currency < 200">Faster Reel: $200</button>
