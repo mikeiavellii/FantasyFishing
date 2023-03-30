@@ -177,4 +177,7 @@ export class CaughtFishComponent implements OnInit {
       this.userService.buyFasterReel(this.UserData.userName).subscribe((response: any) => {});
     }
   }
+  Ethan(){
+    return this.UserData.googleName=="Ethan Jansen"
+  }
 }
