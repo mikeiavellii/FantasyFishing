@@ -29,9 +29,9 @@
             </ul>
           </div>
           <div *ngIf="UserData.currency >= 600">
-            <button (click)="buyBetterRod()" class="btn-dark" [disabled]="UserData.betterRod == true || UserData.currency < 200">Better Rod: $200</button>
-            <button (click)="buyCleanWaters()" class="btn-dark" [disabled]="UserData.cleanWaters == true || UserData.currency < 200">Clean Waters: $200</button>
-            <button (click)="buyFasterReel()" class="btn-dark" [disabled]="UserData.fasterReel == true || UserData.currency < 200">Faster Reel: $200</button>
+            <button (click)="buyBetterRod()" [disabled]="UserData.betterRod == true || UserData.currency < 200">Better Rod: $200</button>
+            <button (click)="buyCleanWaters()" [disabled]="UserData.cleanWaters == true || UserData.currency < 200">Clean Waters: $200</button>
+            <button (click)="buyFasterReel()" [disabled]="UserData.fasterReel == true || UserData.currency < 200">Faster Reel: $200</button>
           </div>
         </div>
       </div>
