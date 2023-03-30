@@ -209,15 +209,13 @@ export class FishesComponent implements OnInit {
     
     }
     else if(pickNumber == 8){
-      setTimeout(()=>{
        if(this.cleanWaters==false){
-         this.catchNemo = true;
+        setTimeout(() => {this.catchTrash = true}, 1000);
        }
        else{
          this.canCatchFish = true;
        }
-   },1000);
-   }
+   };
     //Pick Trash
     // let trashChoice: string = "";
     // if(this.catchTrash == true) {
