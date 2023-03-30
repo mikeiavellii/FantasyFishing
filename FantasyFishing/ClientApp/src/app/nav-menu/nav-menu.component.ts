@@ -34,7 +34,6 @@ export class NavMenuComponent {
   }
 
   openSettings:boolean = false;
-
   displayRandom: boolean = false;
   displayReel: boolean = false;
   canCatchFish: boolean = false;
@@ -141,17 +140,6 @@ Hide2(): void{
   this.hideInstructions = false;
 
 }
-
-
-  
-  //potential delay log out for leaving All Blue
-  // signOut(): void {
-  //   setTimeout(()=>{
-	// this.authService.signOut();
-  // },5000);
-  // the:false;
-  // }    
-
   collapse() {
     this.isExpanded = false;
   }

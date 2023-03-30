@@ -8,27 +8,18 @@ import { NgxSliderModule } from "@angular-slider/ngx-slider";
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FishesComponent } from './Components/fishes/fishes.component';
 import { CaughtFishComponent } from './Components/caught-fish/caught-fish.component';
 import { LeaderboardComponent } from './Components/leaderboard/leaderboard.component';
-import { ShopComponent } from './Components/shop/shop.component';
-
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     FishesComponent,
     CaughtFishComponent,
     LeaderboardComponent,
-    ShopComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,13 +27,9 @@ import { ShopComponent } from './Components/shop/shop.component';
     FormsModule,
     SocialLoginModule,
     NgxSliderModule,
-   
-
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'fishing', component: FishesComponent },
       { path: 'caughtFish', component: CaughtFishComponent },
     ])
@@ -56,8 +43,7 @@ import { ShopComponent } from './Components/shop/shop.component';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '643619535895-sgcocrg6r9l25stj4ijr89a4g7m6j36n'
-              
+              '643619535895-sgcocrg6r9l25stj4ijr89a4g7m6j36n' 
             )
           }
         ]

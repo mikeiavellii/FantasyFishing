@@ -38,11 +38,6 @@ export class FishesComponent implements OnInit {
     "blenniiformesbleeker", "gobiiformes", "albuliformes", "amiiformes", "squaliformes", "pleuronectiformes", "gymnotiformes", "petromyzontiformes", "gasterosteiformes", "heterodontiformesl._s._berg", 
     "carangiformes", "kurtiformes", "orectolobiformesapplegate", "siluriformesg._cuvier", "chimaeriformesobruchev", "gobiesociformes", "actinistiacope", "blenniiformes"
   ]
-  trashes: string[] = [
-    'old shoe',
-    'tin can',
-    'sewaeed'
-  ]
 
   //Numbers
   random: number = 0;
@@ -61,13 +56,11 @@ export class FishesComponent implements OnInit {
   catchTrash: boolean = false;
   catchNemo: boolean = false;
 
-  //Rod Buffs
+  //Buffs
   betterRod: boolean = false;
-  //cleanWaters
   cleanWaters: boolean = false;
-  //Reel Buffs
   fasterReel: boolean = false;
-
+  
   //settings
   openSettings: boolean = false;
 
@@ -124,34 +117,7 @@ export class FishesComponent implements OnInit {
   }
 
   sliderChange():void{
-    // console.log(this.value);
   }
-    // let circle = document.querySelector('.circle') as HTMLElement;
-    // const moveBy = 10;
-  
-    // window.addEventListener('load', () => {
-    //   circle.style.position = 'absolute';
-    //   circle.style.left = '0';
-    //   circle.style.top = '0';
-    // });
-  
-    // window.addEventListener('keyup', (e: KeyboardEvent) => {
-    //   switch (e.key) {
-    //     case 'ArrowLeft':
-    //       circle.style.left = `${parseInt(circle.style.left) - moveBy}px`;
-    //       break;
-    //     case 'ArrowRight':
-    //       circle.style.left = `${parseInt(circle.style.left) + moveBy}px`;
-    //       break;
-    //     case 'ArrowUp':
-    //       circle.style.top = `${parseInt(circle.style.top) - moveBy}px`;
-    //       break;
-    //     case 'ArrowDown':
-    //       circle.style.top = `${parseInt(circle.style.top) + moveBy}px`;
-    //       break;
-    //   }
-    // });
-
 
   //Methods
   getFish(): void{
@@ -170,6 +136,7 @@ export class FishesComponent implements OnInit {
 
   //Determine if Failure
     let pickNumber:number = Math.floor((Math.random() * this.numbers.length)) + 1;
+    
     console.log(pickNumber)
     if (pickNumber == 1){
       this.canCatchFish = true;
@@ -206,31 +173,10 @@ export class FishesComponent implements OnInit {
         else{
           this.canCatchFish = true;
         }
-    
     }
     else if(pickNumber == 8){
-       if(this.cleanWaters==false){
-        setTimeout(() => {this.catchTrash = true}, 1000);
-       }
-       else{
-         this.canCatchFish = true;
-       }
-   };
-    //Pick Trash
-    // let trashChoice: string = "";
-    // if(this.catchTrash == true) {
-    // let choiceNumber:number = Math.floor((Math.random() * this.trashType.length)) + 1;
-    // console.log(pickNumber)
-    //   if(choiceNumber == 1) {
-    //     trashChoice = this.trashes[0];
-    //   }
-    //   else if(pickNumber == 2){
-    //     trashChoice = this.trashes[1];
-    //   }
-    //   else if(pickNumber == 3){
-    //     trashChoice = this.trashes[2];
-    //   }
-    // }
+        setTimeout(() => {this.catchNemo = true}, 1000);
+       };
 
     //Class by Depth
     let classChoice: string = "";

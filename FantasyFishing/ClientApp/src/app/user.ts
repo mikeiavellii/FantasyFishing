@@ -1,5 +1,3 @@
-import { CurrencyPipe } from "@angular/common";
-
 export interface User {
     id: number;
     userName: string;

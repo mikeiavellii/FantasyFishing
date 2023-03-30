@@ -16,9 +16,11 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
 .bar-color {
   background-color: rgba(90, 90, 90, .1)
 }
+
 #background-video {
   height: 100vh;
   width: 100vw;
@@ -30,6 +32,7 @@ html {
   bottom: 0;
   z-index: -1;
 }
+
 .myVideo {
   position: fixed;
   right: 0;
@@ -37,6 +40,7 @@ html {
   min-width: 100%;
   min-height: 100%;
 }
+
 .background-img {
   background-image: url("/assets/Water.gif");
   height: 100%;
@@ -44,12 +48,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* .circle{
-  height:100px;
-  width:100px;
-  border: radius 50%;
-  background-color:green;
-} */
+
 .imgSize{
   max-height: 180px;
 }

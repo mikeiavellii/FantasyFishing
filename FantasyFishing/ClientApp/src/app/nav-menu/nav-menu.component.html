@@ -1,7 +1,7 @@
 <header *ngIf="loggedIn">
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bar-color box-shadow mb-0"
-  >
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bar-color box-shadow mb-0">
+  
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/']"></a>
       <button
@@ -11,103 +11,167 @@
         data-target=".navbar-collapse"
         aria-label="Toggle navigation"
         [attr.aria-expanded]="isExpanded"
-        (click)="toggle()"
-      >
+        (click)="toggle()">
+      
         <span class="navbar-toggler-icon"></span>
       </button>
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-between"
-        [ngClass]="{ show: isExpanded }"
-      >
-      <div class="navbar-nav flex-grow">
-        <button (click)="this.getMusicPlayer()"class="btn p0"><img height=25px src="assets/music.png"></button>
-        <button (click)="GetInstuctions()" class="border-0">Instructions</button>
+        [ngClass]="{ show: isExpanded }">
+  
+        <div class="navbar-nav flex-grow">
+          <button (click)="this.getMusicPlayer()" class="btn p0">
+            <img height="25px" src="assets/music.png" />
+          </button>
+          <button (click)="GetInstuctions()" class="border-0">
+            Instructions
+          </button>
+        </div>
 
-      </div>
-      
         <ul class="navbar-nav flex-grow">
-
           <li>
-            <a class="nav-link text-dark" *ngIf="!loggedIn" [routerLink]="['/']">Home</a>
+            <a class="nav-link text-dark" *ngIf="!loggedIn" [routerLink]="['/']"
+              >Home</a>
+
           </li>
-          <li class="nav-item" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fishing']">Fishing</a>
+          <li
+            class="nav-item"
+            *ngIf="loggedIn"
+            [routerLinkActive]="['link-active']">
+
+            <a class="nav-link text-dark" [routerLink]="['/fishing']"
+              >Fishing</a>
+
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/caughtFish']">User</a>
+            <a class="nav-link text-dark" [routerLink]="['/caughtFish']"
+              >User</a>
+            
           </li>
           <li class="nav-item">
-            <!-- <asl-google-signin-button *ngIf="!loggedIn" type='icon' size='medium'></asl-google-signin-button> -->
-            <button class="btn btn-outline-dark" *ngIf="loggedIn"  [routerLink]="['/']" (click)="signOut()">Sign Out</button>
+            <button
+              class="btn btn-outline-dark"
+              *ngIf="loggedIn"
+              [routerLink]="['/']"
+              (click)="signOut()">
+              Sign Out
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
-          <!--Hide Insturctions-->
-          <div *ngIf="openSettings == false && hideMusicPlayer == false">
-          </div>
+<!--Hide Insturctions-->
+<div *ngIf="openSettings == false && hideMusicPlayer == false"></div>
+
 <div *ngIf="openSettings == true">
   <div class="card text-center col-8 p-0 offset-2">
-      <h4 class="card-header text-center">Settings</h4>
-      <br>
-      <p>Choose a song from on the one's listed below song:</p>
-      <div class="card-group-fluid text-white">
-          <button class="col-.8" (click)="playaudioBlueRock();"><img height="25px" src="assets/play.png"/><br>Blue Rock</button>   |      |  
-          <button class="col-.8" (click)="playaudioSunBeam();"><img height="25px" src="assets/play.png"/><br>Sun Beam</button>   |      |
-          <button class="col-.8" (click)="playaudioSoCloudy();"><img height="25px" src="assets/play.png"/><br>So Cloudy</button>   |      |
-          <button class="col-.8" (click)="playaudioSmoothMF();"><img height="25px" src="assets/play.png"/><br>Smooth MF</button>   |      |
-          <button class="col-.8" (click)="playaudioScuffItUp();"><img height="25px" src="assets/play.png"/><br>Scuff It Up</button>   |      |
-          <button class="col-.8" (click)="playaudioMeds();"><img height="25px" src="assets/play.png"/><br>Meds</button>   |      |
-          <button class="col-.8" (click)="playaudioFocus();"><img height="25px" src="assets/play.png"/><br>Focus</button>   |      |
-          <button class="col-.8" (click)="playaudioSpacedOut();"><img height="25px" src="assets/play.png"/><br>Spaced Out</button>   |      |
-          <button class="col-.8" (click)="playaudioSweetLikeCandy();"><img height="25px" src="assets/play.png"/><br>Sweet Like Candy</button>   |      |
-          <button class="col-.8" (click)="playaudioYeaYeaYea();"><img height="25px" src="assets/play.png"/><br>Yea, Yea, Yea</button>   |      |
-          <button class="col-.8" (click)="playaudioWavy();"><img height="25px" src="assets/play.png"/><br>Wavy</button>   |      |
-
-          <br><br>
-          <button class="col-.8" (click)="pauseMusic();"><img height="25px" src="assets/pause.png"/><br>Pause</button>   |      |  
-
+    <h4 class="card-header text-center">Settings</h4>
+    <br />
+    <p>Choose a song from on the one's listed below song:</p>
+    <div class="card-group-fluid text-white">
+      <button class="col-.8" (click)="playaudioBlueRock()">
+        <img height="25px" src="assets/play.png" /><br />Blue Rock
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioSunBeam()">
+        <img height="25px" src="assets/play.png" /><br />Sun Beam
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioSoCloudy()">
+        <img height="25px" src="assets/play.png" /><br />So Cloudy
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioSmoothMF()">
+        <img height="25px" src="assets/play.png" /><br />Smooth MF
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioScuffItUp()">
+        <img height="25px" src="assets/play.png" /><br />Scuff It Up
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioMeds()">
+        <img height="25px" src="assets/play.png" /><br />Meds
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioFocus()">
+        <img height="25px" src="assets/play.png" /><br />Focus
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioSpacedOut()">
+        <img height="25px" src="assets/play.png" /><br />Spaced Out
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioSweetLikeCandy()">
+        <img height="25px" src="assets/play.png" /><br />Sweet Like Candy
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioYeaYeaYea()">
+        <img height="25px" src="assets/play.png" /><br />Yea, Yea, Yea
+      </button>
+      | |
+      <button class="col-.8" (click)="playaudioWavy()">
+        <img height="25px" src="assets/play.png" /><br />Wavy
+      </button>
+      | | <br /><br />
+      <button class="col-.8" (click)="pauseMusic()">
+        <img height="25px" src="assets/pause.png" /><br />Pause
+      </button>
+      | |
+    </div>
+    <p class="text-center mb-1 pb-0">
+      More songs are available for purchase in the shop. All songs made by Chris
+      Washington.<br /><br />Follow him on social media at any of the links
+      below.
+    </p>
+    <div class="card pt-0 pb-2 border-0">
+      <div class="text-center text-white">
+        <a href="https://soundcloud.com/chris-washington-30"
+          ><img height="36px" src="assets/soundcloud.jpg"
+        /></a>
+        | |
+        <a href="https://music.apple.com/us/artist/lilcuz/1502809696/"
+          ><img height="36px" src="assets/apple.png"
+        /></a>
+        | |
+        <a
+          href="https://open.spotify.com/artist/24ZVDXKbHmHHW9JiYd4RbC?si=uYFjRfnbT8u08mK2hzXy1g&nd=1"
+          ><img height="36px" src="assets/spotify.png"
+        /></a>
+        | |
+        <a href="https://www.youtube.com/channel/UC5DDdF4FXy19ZWG811AcaoQ"
+          ><img height="36px" src="assets/youtube.png"
+        /></a>
+        | |
       </div>
-      <p class="text-center mb-1 pb-0">More songs are available for purchase in the shop. All songs made by Chris Washington.<br><br>Follow him on social media at any of the links below.</p>
-      <div class="card pt-0 pb-2 border-0">
-          <div class="text-center text-white">
-              <a href ="https://soundcloud.com/chris-washington-30"><img height="36px" src="assets/soundcloud.jpg"/></a>     |          |     
-              <a href ="https://music.apple.com/us/artist/lilcuz/1502809696/"><img height="36px" src="assets/apple.png"/></a>     |          |     
-              <a href ="https://open.spotify.com/artist/24ZVDXKbHmHHW9JiYd4RbC?si=uYFjRfnbT8u08mK2hzXy1g&nd=1"><img height="36px" src="assets/spotify.png"/></a>     |         |      
-              <a href ="https://www.youtube.com/channel/UC5DDdF4FXy19ZWG811AcaoQ"><img height="36px" src="assets/youtube.png"/></a>     |          |     
-          </div>
-          <button class="col-4 offset-4" (click)="Hide2()">Close</button>
+      <button class="col-4 offset-4" (click)="Hide2()">Close</button>
+    </div>
   </div>
 </div>
-</div>   
-              <!--Open Settings-->
-      
-                <!-- <li
-                  class="nav-item"
-                  [routerLinkActive]="['link-active']"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                > -->
-      
-          <!--Hide Insturctions-->
-          <div *ngIf="showInstructions == false && hideInstructions == false">
-        </div>
-      
-        <!--Insturctions-->
-        <div *ngIf="showInstructions == true" class="pb-0">
-            <div class="card text-center col-8 offset-2 border-1 pb-0">
-                <h4 class="card-header text-center">Welcome to the All Blue</h4>
-                <br>
-                <p>
-                  In the All Blue, any fish from any depth can be caught.<br>
-                  Adjust your depth using the Slider Bar and click the 'Cast Line' button when you're ready to fish!<br>
-                  Sometimes the fish just aren't biting and that's ok! When you do make a catch, you can either keep it by adding it
-                  to your Caught List and sell it, or release it. You can also purchase upgrades for your tools and buy a special potion to clean up the waters.<br>
-                  Your Caught List can be viewed by clicking the 'User' page above. Here you will find a Leaderboard of all fishers and the Trophies you've earned 
-                  so keep fishing in the All Blue and don't forget to check your profile often to see
-                  if you've earned anything new!</p>
-                <p>Happy Fishing!</p>
-                <button class="col-4 offset-4" (click)="Hide2()">Close</button>
-            </div>
-        </div>
+
+<!--Hide Insturctions-->
+<div *ngIf="showInstructions == false && hideInstructions == false"></div>
+
+<!--Insturctions-->
+<div *ngIf="showInstructions == true" class="pb-0">
+  <div class="card text-center col-8 offset-2 border-1 pb-0">
+    <h4 class="card-header text-center">Welcome to the All Blue</h4>
+    <br />
+    <p>
+      In the All Blue, any fish from any depth can be caught.<br />
+      Adjust your depth using the Slider Bar and click the 'Cast Line' button
+      when you're ready to fish!<br />
+      Sometimes the fish just aren't biting and that's ok! When you do make a
+      catch, you can either keep it by adding it to your Caught List and sell
+      it, or release it. You can also purchase upgrades for your tools and buy a
+      special potion to clean up the waters.<br />
+      Your Caught List can be viewed by clicking the 'User' page above. Here you
+      will find a Leaderboard of all fishers and the Trophies you've earned so
+      keep fishing in the All Blue and don't forget to check your profile often
+      to see if you've earned anything new!
+    </p>
+    <p>Happy Fishing!</p>
+    <button class="col-4 offset-4" (click)="Hide2()">Close</button>
+  </div>
+</div>

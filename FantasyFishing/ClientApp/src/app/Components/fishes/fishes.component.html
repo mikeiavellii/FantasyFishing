@@ -1,12 +1,4 @@
 <div class="background-img">
-    <!--Video Background-->
-    <!-- <div class="m-0 myVideo" *ngIf="loggedIn && hideBackground == false">	
-	<div class="pt-5 mt-5"></div>
-	<video id="background-video" autoplay loop>
-		<source src="assets/Water.mp4" type="video/mp4">
-	</video>
-    <button (click)="hideBackground = true">Hide BG</button> -->
-
 
     <!--Insturctions-->
     <div *ngIf="showInstructions == true">
@@ -37,7 +29,6 @@
     <!--Cast Line button and flavor text-->
     <button class="offset-3" (click)="getSingleFish()" style="height: 50px" *ngIf="casted == false && value != 0">Cast Line</button>
 
-
     <div class="card col-6 offset-3" *ngIf="displayReel == true">
         <h3 class="text-center"><b>Looks like Something's Biting!!!</b></h3>
     </div>
@@ -51,7 +42,6 @@
     <!--Trash Collector-->
     <div class="card col-md-4 col-8 offset-2 offset-md-4" *ngIf="catchTrash == true">
         <h3>Looks like you caught some seaweed... Better luck next time.</h3>
-        <!-- <h3 *ngFor="let t of trashes">Looks like you caught some seaweed... Better luck next time.</h3> -->
         <img class="img-fluid offset-0" src="/assets/Seaweed.jpg">
         <button (click)="Hide()" style="height: 50px">Reel In</button>
     </div>
@@ -59,7 +49,6 @@
     <!--Catch Nemo-->
     <div class="card col-md-4 col-8 offset-2 offset-md-4" *ngIf="catchNemo == true">
         <h3>Looks like you caught Nemo... Throw him back, he's gotta find his dad.</h3>
-        <!-- <h3 *ngFor="let t of trashes">Looks like you caught some seaweed... Better luck next time.</h3> -->
         <img  class="img-fluid offset-0 " src="/assets/nemo.jpg">
         <button (click)="Hide()" style="height: 50px">Reel In</button>
     </div>
