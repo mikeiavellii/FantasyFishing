@@ -178,6 +178,6 @@ export class CaughtFishComponent implements OnInit {
     }
   }
   Ethan(){
-    return this.UserData.googleName=="Ethan Jansen"
+    return this.UserData.googleName=="Ethan Thomas"
   }
 }
