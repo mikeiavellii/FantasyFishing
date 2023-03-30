@@ -18,7 +18,7 @@
 
       <!--Show Shop-->
       <div class="row m-1">
-        <button class="col-4 col-md-2 " (click)="toggleShop()">Shop</button>
+        <button class="col-4 col-md-2  btn-dark" (click)="toggleShop()">Shop</button>
         <div class="col-12 col-md-5 p-1 " *ngIf="displayS">
           <div *ngIf="UserData.currency <600" class="card">
             <p>Insufficent funds. Go out and fish more to purchase these upgrades.</p>
@@ -29,16 +29,16 @@
             </ul>
           </div>
           <div *ngIf="UserData.currency >= 600">
-            <button (click)="buyBetterRod()" [disabled]="UserData.betterRod == true || UserData.currency < 200">Better Rod: $200</button>
-            <button (click)="buyCleanWaters()" [disabled]="UserData.cleanWaters == true || UserData.currency < 200">Clean Waters: $200</button>
-            <button (click)="buyFasterReel()" [disabled]="UserData.fasterReel == true || UserData.currency < 200">Faster Reel: $200</button>
+            <button (click)="buyBetterRod()" class="btn-dark" [disabled]="UserData.betterRod == true || UserData.currency < 200">Better Rod: $200</button>
+            <button (click)="buyCleanWaters()" class="btn-dark" [disabled]="UserData.cleanWaters == true || UserData.currency < 200">Clean Waters: $200</button>
+            <button (click)="buyFasterReel()" class="btn-dark" [disabled]="UserData.fasterReel == true || UserData.currency < 200">Faster Reel: $200</button>
           </div>
         </div>
       </div>
 
       <!--Show Trophies-->
       <div class="row m-1">
-        <button class="col-4 col-md-2" (click)="toggleTrophy()">Trophies</button>
+        <button class="col-4 col-md-2 btn-dark" (click)="toggleTrophy()">Trophies</button>
       </div>
       <div *ngIf="displayT">
         <img class="img-fluid" *ngIf="sharkS()" src="assets/5sharks.png" />
@@ -62,7 +62,7 @@
 
       <!--Show Leaderboard-->
       <div class="row m-1">
-        <button class="col-4 col-md-2" (click)="toggleLeaderboard()">Leaderboard</button>
+        <button class="col-4 col-md-2 btn-dark" (click)="toggleLeaderboard()">Leaderboard</button>
       </div>
       <div class="col-12 col-md-6" *ngIf="displayL">
         <app-leaderboard></app-leaderboard>
