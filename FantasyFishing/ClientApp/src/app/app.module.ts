@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FishesComponent } from './Components/fishes/fishes.component';
 import { CaughtFishComponent } from './Components/caught-fish/caught-fish.component';
 import { LeaderboardComponent } from './Components/leaderboard/leaderboard.component';
+import { TutorialModeComponent } from './Components/tutorial-mode/tutorial-mode.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LeaderboardComponent } from './Components/leaderboard/leaderboard.compo
     FishesComponent,
     CaughtFishComponent,
     LeaderboardComponent,
+    TutorialModeComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
