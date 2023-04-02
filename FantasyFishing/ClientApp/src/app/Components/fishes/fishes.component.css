@@ -37,4 +37,22 @@
     background-color: rgba(39, 39, 39, 0.4);
     color:white;
   }
-  
+  .background-imgd {
+    background: url("../../../assets/Notebook.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .containerd {
+    height: 100%;
+  }
+  .cursiveHeader{
+    font-family: 'Chewy', cursive;
+    font-size:xx-large
+  }
+  .cursiveBody{
+    font-size: 25px;
+    font-family: 'Chewy', cursive;
+
+  }

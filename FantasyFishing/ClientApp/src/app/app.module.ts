@@ -12,6 +12,7 @@ import { FishesComponent } from './Components/fishes/fishes.component';
 import { CaughtFishComponent } from './Components/caught-fish/caught-fish.component';
 import { LeaderboardComponent } from './Components/leaderboard/leaderboard.component';
 import { TutorialModeComponent } from './Components/tutorial-mode/tutorial-mode.component';
+import { AllBlueComponent } from './Components/all-blue/all-blue.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TutorialModeComponent } from './Components/tutorial-mode/tutorial-mode.
     CaughtFishComponent,
     LeaderboardComponent,
     TutorialModeComponent,
+    AllBlueComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

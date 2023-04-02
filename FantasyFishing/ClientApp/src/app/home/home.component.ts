@@ -22,8 +22,13 @@ ngOnInit(): void {
 	});
 }
 //Booleans
-preLogin: boolean = true;
+hidePreLogin: boolean = false;
 newUser: boolean = false;
+
+getTutorialMode():void{
+  this.hidePreLogin = true;
+  this.newUser = true;
+}
 
 
 

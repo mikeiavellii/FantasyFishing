@@ -3,7 +3,7 @@
 <!--Pre-Login-->
 
 <div class="bimg m-0">
-  <div *ngIf="preLogin == true">
+  <div *ngIf="hidePreLogin == false">
 	<div *ngIf="!loggedIn"class="containter-fluid">
 		<br><br><br><br><br>
 		<div>
@@ -21,9 +21,9 @@
 					<p class="p-0">Are you a new or returning user?</p>
 					<div class="row">
 						<p>
-							<button click="preLogin = false && newUser == true" class="btn-gray rounded-pill mt-0 mb-1 p-2 pt-1 pb-1"><b>New User</b></button>
+							<button click="getTutorialMode()" class="btn-gray rounded-pill mt-0 mb-1 p-2 pt-1 pb-1"><b>New User</b></button>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="btn-gray rounded-pill mt-0 mb-1 p-2 pt-1 pb-1"><b>Returning <asl-google-signin-button class="d-flex justify-content-center" *ngIf="!loggedIn" type='icon' size='medium'></asl-google-signin-button></b></button>
+							<button class="btn-gray rounded-pill pt-3 p-2"><b>Returning <asl-google-signin-button class="d-flex justify-content-center" *ngIf="!loggedIn" type='icon' size='medium'></asl-google-signin-button></b></button>
 						</p>
 					<p></p>
 					</div>
