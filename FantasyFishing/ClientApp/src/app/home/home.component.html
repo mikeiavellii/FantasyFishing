@@ -18,7 +18,7 @@
 					</p> 
 
 
-					<p class="p-0">Are you a new or returning user?:</p>
+					<p class="p-0">Are you a new or returning user?</p>
 					<div class="row">
 						<p>
 							<button click="preLogin = false && newUser == true" class="btn-gray rounded-pill mt-0 mb-1 p-2 pt-1 pb-1"><b>New User</b></button>
@@ -34,13 +34,16 @@
 		<div class="fixed-bottom">
 			<div class="pb-1 mb-1"></div>
 			<div class="pb-1 mb-1"></div>
+			<div>
+				<span class="card foot bg-secondary text-center">© 2023 - Fantasy Fishers</span>
+			</div>
 		</div>
 	</div>
   </div>
 </div>
 
 <!--New User/Tutorial Mode-->
-<div *ngIf="newUser==true">
+<div *ngIf="newUser == true">
 	<app-tutorial-mode></app-tutorial-mode>
 </div>
 

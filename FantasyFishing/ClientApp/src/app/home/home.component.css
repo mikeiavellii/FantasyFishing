@@ -1,5 +1,5 @@
 .bimg {
-    background-image: url('https://img5.goodfon.com/original/1920x1080/f/42/lodka-reka-vid-sverkhu-voda-rybak-boat-view-from-above-water.jpg?d=1');
+    background-image: url("/assets/boat1.jpg");
     overflow: hidden; 
     background-size: cover; 
     background-repeat: no-repeat;
@@ -56,4 +56,7 @@ h1, h2 {
 .btn-gray {
   background-color: rgba(255, 255, 255, 0.8);
   border:rgba(0, 0, 0, 0.7);
+}
+.foot{
+  color:black;
 }
