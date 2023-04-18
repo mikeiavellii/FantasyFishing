@@ -74,7 +74,7 @@ export class FishesComponent implements OnInit {
     rightToLeft: true,
 
     translate: (value: number): string => {
-      return value + ' meters';
+      return value + ' m';
     },
     showSelectionBar: true,
     
@@ -235,7 +235,7 @@ export class FishesComponent implements OnInit {
       //booleans post cast
       this.displayReel = false;
       this.displayRandom = true;
-      },this.fasterReel?1500:5000,
+      },this.fasterReel?8500:5000,
     )};
   }
   

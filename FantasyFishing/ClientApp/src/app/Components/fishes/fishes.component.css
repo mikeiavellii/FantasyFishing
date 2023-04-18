@@ -38,10 +38,7 @@
     color:white;
   }
   .background-imgd {
-    background: url("../../../assets/Notebook.png") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background: url("../../../assets/Notebook.png") no-repeat center center; 
     background-size: cover;
   }
   .containerd {

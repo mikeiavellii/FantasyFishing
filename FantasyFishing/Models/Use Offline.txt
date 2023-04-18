@@ -1,0 +1,15 @@
+﻿To use offline delete current dbcontext and run your version of this scaffold command after running the Database file hosted in this repo: 
+Scaffold-DbContext 'Data Source=.\sqlexpress;Initial Catalog=FishDB; Integrated Security=SSPI;Encrypt=false;TrustServerCertificate=True;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+You will need to hide everything in the controller from line 15 to 149.
+
+Our secret file is hidden isn't included in the gitignore so you will need to create your own. 
+
+Create an account on rapidAPI set up the fish species api and it will provide you with an api key, your hosting name categories and the hosting site and set it up like this
+
+        public static string xAPI = "(provided key variable name ie: )API-Key-Key";
+        public static string apiKey = "(provided key ie: )12345gtjinojmkfncd3487348934oihnfdenih397";
+        public static string apiHost = "(provided host variable name ie: )HostName-Host";
+        public static string apiHostLink = "(provided host link ie: )fishapi.rapidapi.com";      
+
+From there you should be good to go.

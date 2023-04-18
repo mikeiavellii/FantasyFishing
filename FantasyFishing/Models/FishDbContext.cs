@@ -21,8 +21,8 @@ public partial class FishDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=fantasyfishing.database.windows.net; Initial Catalog=FishDB; User ID=Group3; Password=LakeOfEden1; TrustServerCertificate=true;");
-
+        => optionsBuilder.UseSqlServer($"Server={Secret.serverName}; Initial Catalog=FishDB; User ID={Secret.uname}; Password={Secret.password}; TrustServerCertificate=true;");
+    //        => optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=FishDB; Integrated Security=SSPI;Encrypt=false;TrustServerCertificate=True;");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CaughtFish>(entity =>
