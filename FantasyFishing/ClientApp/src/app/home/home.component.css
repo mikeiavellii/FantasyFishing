@@ -60,3 +60,15 @@ h1, h2 {
 .foot{
   color:black;
 }
+#newUserButton{
+  color: rgb(60,64,67);
+  font-weight:600;
+
+}
+
+#newUserButton:Hover{
+  background-color: (248,250,255);
+  color: rgb(0, 0, 0);
+  font-weight:600;
+
+}

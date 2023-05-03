@@ -34,6 +34,6 @@
 
 -------------------------------------------DROP TABLE CaughtFish;
 
-SELECT * FROM [UserInfo];
+--SELECT * FROM [UserInfo];
 
-SELECT * FROM CaughtFish;
+--SELECT * FROM CaughtFish;

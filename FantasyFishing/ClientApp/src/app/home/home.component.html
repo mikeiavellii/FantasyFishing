@@ -1,32 +1,31 @@
-<!-- <div class="cursor" #cursor></div> -->
+<div class="cursor" #cursor></div>
 
 <!--Pre-Login-->
 
-<div class="bimg m-0">
-  <div *ngIf="hidePreLogin == false">
+<div class="bimg m-0" *ngIf="hidePreLogin == false">
+  <div >
 	<div *ngIf="!loggedIn"class="containter-fluid">
 		<br><br><br><br><br>
 		<div>
 			<div class="offset-1 card bg-gray rounded-pill col-10 col-md-8 offset-md-2">	<!--Welcome message-->
 				<div class="justify-content-center text-center p-4 pb-3 " >
 					<h3>Welcome to<br>Fantasy Fishing!</h3>
-					<p>
+					<p class="pb-3">
 						It's just another cool day on the water here at All Blue.
 					<br>Cast your line out and see what you can collect! We have over 900 fish for you to try and catch, but can you catch them all?
 					<br>Catch rare fish and display them for your friends to see. Trophy fish abound these waters so try your luck.
 					<br>Maybe you'll catch the Loch Ness Monster, who knows...
 					</p> 
-
-
-					<p class="p-0">Are you a new or returning user?</p>
-					<div class="row">
-						<p>
-							<button click="getTutorialMode()" class="btn-gray rounded-pill mt-0 mb-1 p-2 pt-1 pb-1"><b>New User</b></button>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button class="btn-gray rounded-pill pt-3 p-2"><b>Returning <asl-google-signin-button class="d-flex justify-content-center" *ngIf="!loggedIn" type='icon' size='medium'></asl-google-signin-button></b></button>
-						</p>
-					<p></p>
-					</div>
+					<!-- <p>
+						Login to see more
+						<asl-google-signin-button class="d-flex justify-content-center" *ngIf="!loggedIn" type='standard' size='medium'></asl-google-signin-button>
+					</p> -->
+					<h4 class="pb-md-2">Are you a new or returning user?</h4>
+						<div class="row justify-content-evenly">
+							<div id="newUserButton" (click)="getTutorialMode()" class="col col-md-2 col-5 btn btn-light btn-sm">New User</div>
+							
+							<asl-google-signin-button class="col col-md-1 col-10 d-flex justify-content-center" *ngIf="!loggedIn" type='standard' size='medium'></asl-google-signin-button>
+						</div>
 				</div>
 			</div>
 		</div>

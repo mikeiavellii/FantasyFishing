@@ -51,5 +51,8 @@
   .cursiveBody{
     font-size: 25px;
     font-family: 'Chewy', cursive;
+  }
 
+  #sandBottom{
+    background-color: #C2B280;
   }

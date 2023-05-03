@@ -2,7 +2,7 @@
 
 
     <!--Slider Bar-->
-    <div class="card col-4 offset-3 col-md-2  bg-gray1">
+    <div class="card col-4 offset-3 col-md-1  bg-gray1">
         <div class="p-2 custom-slider low-pointer-label" style="height: 400px;" *ngIf="casted == false"><!--hide the slider-->
             <ngx-slider [(value)]="value" [options]="options" (userChange)="sliderChange()"></ngx-slider>
         </div>
@@ -42,4 +42,12 @@
         <button (click)="addCaughtFish(AllFish[this.random].name, AllFish[this.random].img_Src_Set, AllFish[this.random].meta.scientific_Classification)" style="height: 50px;">🎣📋</button>
         <button (click)="Hide()" style="height: 50px">Release</button>
     </div>
+</div>
+<div class="fixed-bottom" id='sandBottom'>
+    <div class="pb-1 mb-1"></div>
+    <div class="pb-1 mb-1"></div>
+    <div>
+        <div class="text-center">© 2023 - Fantasy Fishers</div>
+    </div>
+    <p id='demo'></p>
 </div>

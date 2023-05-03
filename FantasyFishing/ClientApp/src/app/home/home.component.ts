@@ -1,5 +1,7 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, HostListener, ViewChild } from '@angular/core';
+import { UserService } from '../Services/user.service';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,14 @@ export class HomeComponent {
 
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
-constructor(private authService: SocialAuthService) { }
+constructor(private authService: SocialAuthService, private userService: UserService) { }
+//User
+
+
+//Sign In
+signInWithGoogle(): void {
+  this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+}
 
 ngOnInit(): void {
 
@@ -39,4 +48,15 @@ getTutorialMode():void{
 //     this.refCursor.nativeElement.style.left = (event.pageX - 25) + "px";
 //     this.refCursor.nativeElement.style.top = (event.pageY -25) + "px";
 //   }
+
+//Determine position
+// @ViewChild('cursor') refCursor: any;
+// @HostListener('document:click',['$event'])
+// onClick(event:any){
+//   console.log(event.pageX);
+//   console.log(event.pageY);
+
+// }
+
 }
+

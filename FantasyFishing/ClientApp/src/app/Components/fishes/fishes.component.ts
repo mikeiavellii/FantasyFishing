@@ -119,6 +119,11 @@ export class FishesComponent implements OnInit {
   sliderChange():void{
   }
 
+
+
+
+
+  
   //Methods
   getFish(): void{
     this.fishService.getFish().subscribe((response: Fish[]) => {

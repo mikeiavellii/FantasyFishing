@@ -13,7 +13,8 @@ import { CaughtFishComponent } from './Components/caught-fish/caught-fish.compon
 import { LeaderboardComponent } from './Components/leaderboard/leaderboard.component';
 import { TutorialModeComponent } from './Components/tutorial-mode/tutorial-mode.component';
 import { AllBlueComponent } from './Components/all-blue/all-blue.component';
-import { Secret } from './Secret';
+
+
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { Secret } from './Secret';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              (`${Secret.clientID}`) 
+              (`643619535895-sgcocrg6r9l25stj4ijr89a4g7m6j36n`) 
             )
           }
         ]
